@@ -3,7 +3,7 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
-    go = { "gofumt", "goimports_reviser", "golines" },
+    go = { "gofumpt", "goimports-reviser", "golines" },
   },
 
   format_on_save = {
