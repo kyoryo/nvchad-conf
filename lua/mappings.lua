@@ -5,14 +5,13 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+map("i", "jk", "<ESC>", { desc = "type jk in insert mode to esc" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-local harpoon = require "harpoon"
 
--- REQUIRED
-harpoon:setup()
--- REQUIRED
+-- harpoon section
+local harpoon = require "harpoon"
+harpoon:setup() -- REQUIRED
 
 map("n", "<leader>a", function()
   harpoon:list():add()
