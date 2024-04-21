@@ -31,6 +31,7 @@ return {
         "goimports-reviser",
         "golines",
         "go-debug-adapter",
+        "delve",
         -- protobuf
         "buf-language-server",
         "buf",
@@ -49,6 +50,9 @@ return {
         "go",
       },
     },
+  },
+  {
+    "mfussenegger/nvim-dap",
   },
   -- {
   --   "christoomey/vim-tmux-navigator",

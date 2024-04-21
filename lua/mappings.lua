@@ -40,3 +40,18 @@ end, { desc = "harpoon list, next buff" })
 map("n", "<C-S-N>", function()
   harpoon:list():next()
 end, { desc = "harpoon list, prev buff" })
+
+-- debug keymap
+map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Debug, add breakpoint at line" })
+map("n", "<leader>dus", function()
+  local widgets = require "dap.ui.widgets"
+  local sidebar = widgets.sidebar(widgets.scopes)
+  sidebar.open()
+end, { desc = "Debug, open sidebar" })
+
+map("n", "<leader>dgt", function()
+  require("dap-go").debug_test()
+end, { desc = "Debug, debug go test" })
+map("n", "<leader>dgl", function()
+  require("dap-go").debug_last()
+end, { desc = "Debug, debug last go test" })
