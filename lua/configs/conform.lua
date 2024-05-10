@@ -4,6 +4,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     go = { "gofumpt", "goimports-reviser", "golines" },
+    buf = { "buf" },
   },
 
   format_on_save = {
