@@ -9,6 +9,9 @@ require "nvchad.options"
 vim.opt.relativenumber = true
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = "unnamedplus"
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
 
 -- highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
