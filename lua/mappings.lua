@@ -15,31 +15,84 @@ harpoon:setup() -- REQUIRED
 
 map("n", "<leader>a", function()
   harpoon:list():add()
-end, { desc = "add file to harpoon" })
+end, { desc = "HARPOON add file" })
 map("n", "<C-e>", function()
   harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { desc = "open harpoon menu" })
+end, { desc = "HARPOON open menu" })
 
-map("n", "<C-1>", function()
+map("n", "<leader>1", function()
   harpoon:list():select(1)
-end, { desc = "harpoon list, select buf 1" })
-map("n", "<C-2>", function()
+end, { desc = "HARPOON select buf 1" })
+map("n", "<leader>2", function()
   harpoon:list():select(2)
-end, { desc = "harpoon list, select buf 2" })
-map("n", "<C-3>", function()
+end, { desc = "HARPOON select buf 2" })
+map("n", "<leader>3", function()
   harpoon:list():select(3)
-end, { desc = "harpoon list, select buf 3" })
-map("n", "<C-4>", function()
+end, { desc = "HARPOON select buf 3" })
+map("n", "<leader>4", function()
   harpoon:list():select(4)
-end, { desc = "harpoon list, select buf 4" })
+end, { desc = "HARPOON select buf 4" })
+map("n", "<leader>5", function()
+  harpoon:list():select(4)
+end, { desc = "HARPOON select buf 5" })
+map("n", "<leader>6", function()
+  harpoon:list():select(4)
+end, { desc = "HARPOON select buf 6" })
+map("n", "<leader>7", function()
+  harpoon:list():select(4)
+end, { desc = "HARPOON select buf 7" })
+map("n", "<leader>8", function()
+  harpoon:list():select(4)
+end, { desc = "HARPOON select buf 8" })
+map("n", "<leader>9", function()
+  harpoon:list():select(4)
+end, { desc = "HARPOON select buf 9" })
+map("n", "<leader>0", function()
+  harpoon:list():select(4)
+end, { desc = "HARPOON select buf 0" })
 
 -- Toggle previous & next buffers stored within Harpoon list
 map("n", "<C-S-P>", function()
   harpoon:list():prev()
-end, { desc = "harpoon list, next buff" })
+end, { desc = "HARPOON next buff" })
 map("n", "<C-S-N>", function()
   harpoon:list():next()
-end, { desc = "harpoon list, prev buff" })
+end, { desc = "HARPOON prev buff" })
+
+-- Spectre
+map("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
+  desc = "SPECTRE Toggle",
+})
+map("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+  desc = "SPECTRE Search current word",
+})
+map("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+  desc = "SPECTRE Search current word",
+})
+map("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+  desc = "SPECTRE Search on current file",
+})
+
+-- hop
+local hop = require "hop"
+local directions = require("hop.hint").HintDirection
+-- replacing builtin vim f and t function
+map("", "f", function()
+  hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
+end, { remap = true, desc = "HOP find, current line after cursor" })
+map("", "F", function()
+  hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true }
+end, { remap = true, desc = "HOP find, current line before cursor" })
+map("", "t", function()
+  hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }
+end, { remap = true, desc = "HOP till, current line after cursor" })
+map("", "T", function()
+  hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
+end, { remap = true, desc = "HOP till, current line before cursor" })
+-- hop word
+map("n", "<leader><leader>w", function()
+  hop.hint_words()
+end, { remap = true, desc = "HOP word, all lines" })
 
 -- debug keymap
 -- map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Debug, add breakpoint at line" })
