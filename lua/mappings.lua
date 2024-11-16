@@ -95,16 +95,25 @@ map("n", "<leader><leader>w", function()
 end, { remap = true, desc = "HOP word, all lines" })
 
 -- debug keymap
+local dap = require "dap"
+map("n", "<leader>db", function()
+  dap.toggle_breakpoint()
+end, { desc = "DEBUG add breakpoint at line" })
+map("n", "<leader>dc", function()
+  dap.continue()
+end, { desc = "DEBUG continue" })
+
+local dapui = require "dapui"
 -- map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Debug, add breakpoint at line" })
 -- map("n", "<leader>dus", function()
 --   local widgets = require "dap.ui.widgets"
 --   local sidebar = widgets.sidebar(widgets.scopes)
 --   sidebar.open()
--- end, { desc = "Debug, open sidebar" })
+-- end, { desc = "DEBUG open sidebar" })
 --
 -- map("n", "<leader>dgt", function()
 --   require("dap-go").debug_test()
--- end, { desc = "Debug, debug go test" })
+-- end, { desc = "DEBUG debug go test" })
 -- map("n", "<leader>dgl", function()
 --   require("dap-go").debug_last()
--- end, { desc = "Debug, debug last go test" })
+-- end, { desc = "DEBUG debug last go test" })

@@ -51,9 +51,8 @@ return {
       },
     },
   },
-  {
-    "mfussenegger/nvim-dap",
-  },
+  -- debug
+  {},
   -- {
   --   "christoomey/vim-tmux-navigator",
   --   lazy = false,
