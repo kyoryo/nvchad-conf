@@ -126,3 +126,4 @@ end, { desc = "DEBUG debug last go test" })
 -- code action preview ui
 local actprev = require "actions-preview"
 map("n", "ga", actprev.code_actions, { desc = "LSP Code Action preview" })
+map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "LSP hover" })
