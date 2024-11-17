@@ -1,5 +1,9 @@
 # starter
 Starter config for NvChad
+
+quick installation
+`git clone https://github.com/kyoryo/nvchad-conf.git ~/.config/nvim/`
+
 run these after cloning
 `:TSInstall <your language>`
 `:MasonInstallAll`

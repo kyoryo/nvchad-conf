@@ -51,8 +51,6 @@ return {
       },
     },
   },
-  -- debug
-  {},
   -- {
   --   "christoomey/vim-tmux-navigator",
   --   lazy = false,
