@@ -12,6 +12,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
+-- ignore cases (cmd autocomplete)
+vim.opt.ignorecase = true
 
 -- highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
