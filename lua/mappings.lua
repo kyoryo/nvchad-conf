@@ -10,7 +10,12 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- telescope
-map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+map(
+  "n",
+  "<leader>fg",
+  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+  { desc = "telescope live grep args" }
+)
 
 -- harpoon section
 local harpoon = require "harpoon"
@@ -130,3 +135,11 @@ end, { desc = "DEBUG debug last go test" })
 local actprev = require "actions-preview"
 map("n", "ga", actprev.code_actions, { desc = "LSP Code Action preview" })
 map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "LSP hover" })
+
+-- copy external line link
+map("n", "yu", function()
+  require("git-link.main").copy_line_url()
+end, { desc = "URL copy code line to clipboard" })
+map("n", "<leader>go", function()
+  require("git-link.main").open_line_url()
+end, { desc = "URL open code line to clipboard" })

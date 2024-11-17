@@ -57,6 +57,9 @@ return {
   {
     "nvim-telescope/telescope-live-grep-args.nvim",
   },
+  {
+    "juacker/git-link.nvim",
+  },
   -- {
   --   "christoomey/vim-tmux-navigator",
   --   lazy = false,
