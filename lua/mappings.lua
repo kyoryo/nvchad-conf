@@ -9,6 +9,9 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+-- telescope
+map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+
 -- harpoon section
 local harpoon = require "harpoon"
 harpoon:setup() -- REQUIRED

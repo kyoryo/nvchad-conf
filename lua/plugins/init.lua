@@ -54,6 +54,9 @@ return {
   {
     "aznhe21/actions-preview.nvim",
   },
+  {
+    "nvim-telescope/telescope-live-grep-args.nvim",
+  },
   -- {
   --   "christoomey/vim-tmux-navigator",
   --   lazy = false,
