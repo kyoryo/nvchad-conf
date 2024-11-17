@@ -14,6 +14,8 @@ vim.opt.tabstop = 4
 vim.opt.expandtab = true
 -- ignore cases (cmd autocomplete)
 vim.opt.ignorecase = true
+-- gui colors
+vim.opt.termguicolors = true
 
 -- highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {

@@ -122,3 +122,7 @@ end, { desc = "DEBUG debug go test" })
 map("n", "<leader>dgl", function()
   require("dap-go").debug_last_test()
 end, { desc = "DEBUG debug last go test" })
+
+-- code action preview ui
+local actprev = require "actions-preview"
+map("n", "ga", actprev.code_actions, { desc = "LSP Code Action preview" })

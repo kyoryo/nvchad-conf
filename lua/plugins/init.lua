@@ -51,6 +51,9 @@ return {
       },
     },
   },
+  {
+    "aznhe21/actions-preview.nvim",
+  },
   -- {
   --   "christoomey/vim-tmux-navigator",
   --   lazy = false,
