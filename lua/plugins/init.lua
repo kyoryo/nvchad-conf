@@ -60,6 +60,12 @@ return {
   {
     "juacker/git-link.nvim",
   },
+  {
+    "sshelll/gott.nvim",
+    dependencies = {
+      "rcarriga/nvim-notify",
+    },
+  },
   -- {
   --   "christoomey/vim-tmux-navigator",
   --   lazy = false,

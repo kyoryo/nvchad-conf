@@ -29,7 +29,7 @@ open mason window
 `:Mason`
 
 list keymap
-`:Telescope keymap`
+`:Telescope keymaps`
 
 toggle gitblame via gitsign
 `:Gitsign toggle_current_line_blame`
