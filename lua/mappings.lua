@@ -143,3 +143,13 @@ end, { desc = "URL copy code line to clipboard" })
 map("n", "<leader>go", function()
   require("git-link.main").open_line_url()
 end, { desc = "URL open code line to clipboard" })
+
+-- show diagnostic
+-- map("n", "<leader>sd", ":lua vim.diagnostic.setqflist()<CR>", { desc = "Diagnostic add to quick fix list" })
+map("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Diagnostic Open" })
+-- map("n", "<leader>d[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Diagnostic prev" })
+-- map("n", "<leader>d]", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Diagnostic next" })
+-- The following command requires plug-ins "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", and optionally "kyazdani42/nvim-web-devicons" for icon support
+map("n", "<leader>dd", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostic Show" })
+-- If you don't want to use the telescope plug-in but still want to see all the errors/warnings, comment out the telescope line and uncomment this:
+-- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
