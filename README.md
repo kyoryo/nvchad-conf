@@ -23,6 +23,13 @@ if not present, run this command
 ```
 fish_add_path -U "/home/<username>/go/bin"
 ```
+or add this in zshrc
+```
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH
+```
 
 # useful vim command
 open mason window

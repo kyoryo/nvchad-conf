@@ -31,7 +31,7 @@ local debugger = {
       dap_configurations = {
         {
           type = "go",
-          name = "Debug (build flags)",
+          name = "custom debug example",
           request = "launch",
           program = "${file}",
           buildFlags = require("dap-go").get_build_flags,

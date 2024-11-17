@@ -1,5 +1,6 @@
 local golang = {
   "olexsmir/gopher.nvim",
+  lazy = false,
   ft = "go",
   -- branch = "develop", -- if you want develop branch
   -- keep in mind, it might break everything
