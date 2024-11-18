@@ -98,6 +98,22 @@ return {
       }
     end,
   },
+  {
+    "cademichael/gotest.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim",
+    },
+    lazy = false,
+    config = function()
+      -- defaults
+      vim.g.gotest = {
+        test_cmd = "go test -run ",
+        preview_cutoff = 0,
+        preview_width = 0.67,
+      }
+    end,
+  },
   -- {
   --   "christoomey/vim-tmux-navigator",
   --   lazy = false,

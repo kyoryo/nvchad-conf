@@ -157,3 +157,7 @@ map("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Dia
 map("n", "<leader>dd", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostic Show" })
 -- If you don't want to use the telescope plug-in but still want to see all the errors/warnings, comment out the telescope line and uncomment this:
 -- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
+
+local goTest = require "gotest"
+map("n", "<Space>gtf", goTest.goFuncTester, { desc = "go test function" })
+map("n", "<Space>gtm", goTest.goModTester, { desc = "go test mod" })
