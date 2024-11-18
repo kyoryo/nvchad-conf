@@ -109,7 +109,7 @@ map("n", "<leader>db", function()
 end, { desc = "DEBUG add breakpoint at line" })
 map("n", "<leader>dc", function()
   dap.continue()
-end, { desc = "DEBUG add breakpoint at line" })
+end, { desc = "DEBUG continue" })
 map("n", "<F1>", dap.continue, { desc = "DEBUG continue" })
 map("n", "<F2>", dap.step_into, { desc = "DEBUG step into" })
 map("n", "<F3>", dap.step_over, { desc = "DEBUG step over" })
@@ -117,6 +117,10 @@ map("n", "<F4>", dap.step_back, { desc = "DEBUG step back" })
 map("n", "<F5>", dap.restart, { desc = "DEBUG restart" })
 
 local dapui = require "dapui"
+map("n", "<leader>dut", dapui.toggle, { desc = "DEBUG toggle ui" })
+map("n", "<leader>duo", dapui.open, { desc = "DEBUG open ui" })
+map("n", "<leader>duc", dapui.close, { desc = "DEBUG open ui" })
+
 -- map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Debug, add breakpoint at line" })
 map("n", "<leader>dus", function()
   local widgets = require "dap.ui.widgets"

@@ -65,6 +65,7 @@ return {
     dependencies = {
       "rcarriga/nvim-notify",
     },
+    lazy = false,
   },
   {
     "karb94/neoscroll.nvim",
