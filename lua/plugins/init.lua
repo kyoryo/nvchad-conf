@@ -60,13 +60,13 @@ return {
   {
     "juacker/git-link.nvim",
   },
-  {
-    "sshelll/gott.nvim",
-    dependencies = {
-      "rcarriga/nvim-notify",
-    },
-    lazy = false,
-  },
+  -- {
+  --   "sshelll/gott.nvim",
+  --   dependencies = {
+  --     "rcarriga/nvim-notify",
+  --   },
+  --   lazy = false,
+  -- },
   {
     "karb94/neoscroll.nvim",
     lazy = false,
@@ -95,22 +95,6 @@ return {
           "WinScrolled",
           "CursorMoved",
         },
-      }
-    end,
-  },
-  {
-    "cademichael/gotest.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim",
-    },
-    lazy = false,
-    config = function()
-      -- defaults
-      vim.g.gotest = {
-        test_cmd = "go test -run ",
-        preview_cutoff = 0,
-        preview_width = 0.67,
       }
     end,
   },

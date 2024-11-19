@@ -1,4 +1,11 @@
 require "nvchad.mappings"
+--nvchad default mapping https://github.com/NvChad/NvChad/blob/v2.5/lua/nvchad/mappings.lua
+--
+-- disable nvchad default mappings
+local nomap = vim.keymap.del
+-- disabled this so tab mapping doesn't interfere with ctrl-i
+-- moreover read here https://nvchad.com/docs/faq/#mapping_ctrl_+_o_/_i_keys
+nomap("n", "<tab>")
 
 -- add yours here
 
@@ -99,7 +106,11 @@ map("", "T", function()
 end, { remap = true, desc = "HOP till, current line before cursor" })
 -- hop word
 map("n", "<leader><leader>w", function()
-  hop.hint_words()
+  -- hop.hint_words()
+  hop.hint_words { directions = directions.AFTER_CURSOR, current_line_only = false }
+end, { remap = true, desc = "HOP word, all lines" })
+map("n", "<leader><leader>h", function()
+  hop.hint_words { directions = directions.BEFORE_CURSOR, current_line_only = false }
 end, { remap = true, desc = "HOP word, all lines" })
 
 -- debug keymap
@@ -157,7 +168,3 @@ map("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Dia
 map("n", "<leader>dd", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostic Show" })
 -- If you don't want to use the telescope plug-in but still want to see all the errors/warnings, comment out the telescope line and uncomment this:
 -- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
-
-local goTest = require "gotest"
-map("n", "<Space>gtf", goTest.goFuncTester, { desc = "go test function" })
-map("n", "<Space>gtm", goTest.goModTester, { desc = "go test mod" })
