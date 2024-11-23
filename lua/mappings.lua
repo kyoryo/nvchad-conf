@@ -24,6 +24,9 @@ map(
   ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { desc = "telescope live grep args" }
 )
+-- fzf
+-- map("n", "<leader>fzf", ":lua require('fzf-lua').files()<CR>", { desc = "FZF find files" })
+map("n", "<C-p>", ":lua require('fzf-lua').files()<CR>", { desc = "FZF find files" })
 
 -- harpoon section
 local harpoon = require "harpoon"

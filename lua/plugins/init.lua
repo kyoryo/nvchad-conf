@@ -59,6 +59,7 @@ return {
   },
   {
     "juacker/git-link.nvim",
+    -- lazy = false,
   },
   -- {
   --   "sshelll/gott.nvim",
