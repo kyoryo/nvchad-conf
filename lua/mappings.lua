@@ -3,6 +3,7 @@ require "nvchad.mappings"
 --
 -- disable nvchad default mappings
 local nomap = vim.keymap.del
+
 -- disabled this so tab mapping doesn't interfere with ctrl-i
 -- moreover read here https://nvchad.com/docs/faq/#mapping_ctrl_+_o_/_i_keys
 nomap("n", "<tab>")
@@ -168,3 +169,16 @@ map("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Diag
 map("n", "<leader>dd", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostic Show" })
 -- If you don't want to use the telescope plug-in but still want to see all the errors/warnings, comment out the telescope line and uncomment this:
 -- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
+
+-- trouble
+map("n", "<leader>tdt", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Trouble)" })
+map("n", "<leader>tdb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
+map("n", "<leader>tst", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+map(
+  "n",
+  "<leader>tst",
+  "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+  { desc = "LSP Definitions / references / ... (Trouble)" }
+)
+map("n", "<leader>tlt", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
+map("n", "<leader>tqt", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
