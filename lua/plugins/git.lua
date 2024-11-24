@@ -6,4 +6,10 @@ return {
       require("diffview").setup()
     end,
   },
+
+  {
+    -- to copy git link on a line
+    "juacker/git-link.nvim",
+    -- lazy = false,
+  },
 }
