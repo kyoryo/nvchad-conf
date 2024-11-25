@@ -13,6 +13,10 @@ nomap("n", "<tab>")
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
+map("n", "<C-Left>", "<C-w>h", { desc = "Pane move left" })
+map("n", "<C-Right>", "<C-w>l", { desc = "Pane move right" })
+map("n", "<C-Up>", "<C-w>k", { desc = "Pane move up" })
+map("n", "<C-Down>", "<C-w>j", { desc = "Pane move down" })
 -- map("i", "jk", "<ESC>", { desc = "type jk in insert mode to esc" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
