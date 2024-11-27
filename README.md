@@ -54,3 +54,6 @@ list keymap
 
 toggle gitblame via gitsign
 `:Gitsign toggle_current_line_blame`
+
+to copy text in wsl run this command after using visual block to select desired text in normal mode vim
+`:'<,'>w !clip.exe`
