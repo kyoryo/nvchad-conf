@@ -10,9 +10,6 @@ return {
     end,
   },
   {
-    "bkad/CamelCaseMotion",
-  },
-  {
     "johmsalas/text-case.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
