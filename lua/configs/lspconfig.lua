@@ -7,6 +7,12 @@ local lspconfig = require "lspconfig"
 local servers = { "html", "cssls", "buf_ls" }
 local util = require "lspconfig/util"
 
+-- Add folding capabilities required by ufo.nvim
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
+
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
