@@ -45,6 +45,10 @@ in addition of lazy git, we could use nvim as external difftool and mergetool by
     tool = nvimdiff
 ```
 
+## AI Tools
+### codeium
+run `:Codeium Auth` to login to codeium.
+
 ## useful vim command
 open mason window
 `:Mason`
