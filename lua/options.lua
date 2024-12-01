@@ -28,6 +28,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- autosession config
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- wsl clipboard specific
 -- disable this in other os (??? need testing)
 -- vim.g.clipboard = {
