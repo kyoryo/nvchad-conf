@@ -1,5 +1,4 @@
 local options = {
-
   defaults = {
     git_icon = false,
     file_icon = false,

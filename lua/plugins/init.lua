@@ -35,6 +35,8 @@ return {
         -- protobuf
         "buf-language-server",
         "buf",
+        -- rust
+        "rust-analyzer",
       },
     },
   },
