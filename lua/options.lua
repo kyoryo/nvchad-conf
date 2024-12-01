@@ -12,6 +12,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
+
 -- ignore cases (cmd autocomplete)
 vim.opt.ignorecase = true
 -- gui colors
@@ -26,3 +27,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank { higroup = "IncSearch", timeout = 100 }
   end,
 })
+
+-- wsl clipboard specific
+-- disable this in other os (??? need testing)
+vim.g.clipboard = {
+  name = "WslClipboard",
+  copy = {
+    ["+"] = "clip.exe",
+    ["*"] = "clip.exe",
+  },
+  paste = {
+    ["+"] = 'pwsh.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ["*"] = 'pwsh.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+  },
+  cache_enabled = 0,
+}
