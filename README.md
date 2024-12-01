@@ -61,3 +61,26 @@ toggle gitblame via gitsign
 
 to copy text in wsl run this command after using visual block to select desired text in normal mode vim
 `:'<,'>w !clip.exe`
+
+### mapping
+
+There are several ctl+key that has same function as other key. Be mindful if you use these key in your mapping.
+
+| **Key Combination** | **ASCII Code** | **Same As**                  | **Meaning**                                  |
+|----------------------|----------------|------------------------------|----------------------------------------------|
+| Ctrl + A            | 0x01           | Start of Heading (SOH)       | Often used to move to the start of the line. |
+| Ctrl + B            | 0x02           | Start of Text (STX)          | Used for moving the cursor left in some apps.|
+| Ctrl + C            | 0x03           | End of Text (ETX)            | Interrupt signal in terminals.              |
+| Ctrl + D            | 0x04           | End of Transmission (EOT)    | Signals end of input (e.g., EOF in `cat`).  |
+| Ctrl + E            | 0x05           | Enquiry (ENQ)                | Used to move to the end of the line.        |
+| Ctrl + H            | 0x08           | Backspace                    | Deletes one character to the left.          |
+| Ctrl + I            | 0x09           | Tab                          | Horizontal tab.                             |
+| Ctrl + J            | 0x0A           | Line Feed (LF)               | Acts as Enter in some cases.                |
+| Ctrl + M            | 0x0D           | Carriage Return (CR)         | Acts as Enter (similar to Ctrl + J).        |
+| Ctrl + [            | 0x1B           | Escape (ESC)                 | Used to enter command mode in some editors. |
+| Ctrl + \            | 0x1C           | File Separator               | Triggers quit or force quit in some shells. |
+| Ctrl + ]            | 0x1D           | Group Separator              | Often used for certain terminal commands.   |
+| Ctrl + ^            | 0x1E           | Record Separator             | Rarely used directly.                       |
+| Ctrl + _            | 0x1F           | Unit Separator               | Rarely used directly.                       |
+| Ctrl + Space        | 0x00           | Null (NUL)                   | Represents a null character.                |
+
