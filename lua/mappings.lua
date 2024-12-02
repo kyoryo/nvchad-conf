@@ -187,14 +187,15 @@ map("n", "<F5>", dap.restart, { desc = "DEBUG restart" })
 local dapui = require "dapui"
 map("n", "<leader>dut", dapui.toggle, { desc = "DEBUG toggle ui" })
 map("n", "<leader>duo", dapui.open, { desc = "DEBUG open ui" })
-map("n", "<leader>duc", dapui.close, { desc = "DEBUG open ui" })
+map("n", "<leader>duc", dapui.close, { desc = "DEBUG close ui" })
+map("n", "<leader>due", dapui.eval, { desc = "DEBUG open eval" })
 
--- map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Debug, add breakpoint at line" })
 map("n", "<leader>dus", function()
   local widgets = require "dap.ui.widgets"
   local sidebar = widgets.sidebar(widgets.scopes)
   sidebar.open()
 end, { desc = "DEBUG open sidebar" })
+
 -- dap go
 map("n", "<leader>dgt", function()
   require("dap-go").debug_test()

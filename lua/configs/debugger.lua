@@ -1,5 +1,6 @@
 local M = {}
 local dap_go = require "configs.debugger.go"
+-- local dap_rust = require "configs.debugger.rust"
 
 function M.setup_dap_and_dapui(opts)
   local dap = require "dap"
@@ -7,6 +8,7 @@ function M.setup_dap_and_dapui(opts)
   dap.set_log_level "INFO"
   dapui.setup(opts)
 
+  -- automaticly open and close dap ui
   dap.listeners.before.attach.dapui_config = function()
     dapui.open {}
   end
