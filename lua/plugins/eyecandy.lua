@@ -1,6 +1,20 @@
 -- this section containing any eye candy plugins
 return {
   {
+    {
+      "Bekaboo/dropbar.nvim",
+      -- optional, but required for fuzzy finder support
+      dependencies = {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+      },
+      lazy = false,
+      config = function()
+        require "configs.dropbar"
+      end,
+    },
+  },
+  {
     -- preview for lsp code actions
     "aznhe21/actions-preview.nvim",
   },
