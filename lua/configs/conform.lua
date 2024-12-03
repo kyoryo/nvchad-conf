@@ -12,6 +12,15 @@ local options = {
     timeout_ms = 500,
     lsp_fallback = true,
   },
+
+  formatters = {
+    golines = {
+      -- Specify the binary name or path to the formatter
+      cmd = "golines",
+      args = { "-m", "100" }, -- Pass the `-m 128` argument
+      stdin = true, -- Indicates that the formatter accepts input via stdin
+    },
+  },
 }
 
 require("conform").setup(options)
