@@ -38,6 +38,10 @@ return {
         -- rust
         "rust-analyzer",
         "codelldb",
+        -- terraform
+        "terraform-ls",
+        "tflint",
+        "tfsec",
       },
     },
   },

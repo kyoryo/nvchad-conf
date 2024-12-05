@@ -4,7 +4,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "buf_ls" }
+local servers = { "html", "cssls", "buf_ls", "terraformls" }
 local util = require "lspconfig/util"
 
 -- Add folding capabilities required by ufo.nvim
