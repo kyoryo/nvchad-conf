@@ -50,7 +50,7 @@ map(
   { desc = "Document Symbols" }
 )
 map("n", "<leader>pgr", fzflua.lsp_references, { desc = "LSP References" })
-map("n", "<leader>pwd", fzflua.lsp_workspace_diagnostics, { desc = "LSP Workspace Diagnostics" })
+map("n", "<leader>pd", fzflua.lsp_workspace_diagnostics, { desc = "LSP Workspace Diagnostics" })
 map("n", "<leader>pr", fzflua.resume, { desc = "FZF Resume" })
 -- map("n", "<leader>pre", fzflua.registers, { desc = "Registers" })
 -- map("n", "<leader>pm", fzflua.marks, { desc = "Marks" })
