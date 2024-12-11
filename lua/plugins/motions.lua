@@ -33,4 +33,11 @@ return {
     -- available after the first executing of it or after a keymap of text-case.nvim has been used.
     lazy = false,
   },
+  {
+    "echasnovski/mini.ai",
+    version = "*",
+    config = function()
+      require("mini.ai").setup()
+    end,
+  },
 }
