@@ -5,6 +5,8 @@ local options = {
     html = { "prettier" },
     go = { "gofumpt", "goimports-reviser", "golines" },
     buf = { "buf" },
+    tf = { "tflint", "tfsec" },
+    sql = { "sqlfmt" },
   },
 
   format_on_save = {

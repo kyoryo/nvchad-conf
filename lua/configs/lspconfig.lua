@@ -46,3 +46,15 @@ lspconfig.gopls.setup {
     },
   },
 }
+
+-- sqlls
+lspconfig.sqlls.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  cmd = { "sql-language-server", "up", "--method", "stdio" },
+  filetypes = { "sql", "mysql" },
+  root_dir = function(_)
+    return vim.loop.cwd()
+  end,
+}
