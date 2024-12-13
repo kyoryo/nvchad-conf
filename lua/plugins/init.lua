@@ -61,6 +61,13 @@ return {
   {
     "nvim-telescope/telescope-live-grep-args.nvim",
   },
+  {
+    "mfussenegger/nvim-lint",
+    event = { "BufWritePre", "BufNewFile" },
+    config = function()
+      require "configs.nvimlint"
+    end,
+  },
   -- {
   --   "sshelll/gott.nvim",
   --   dependencies = {

@@ -1,11 +1,12 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    css = { "prettier" },
-    html = { "prettier" },
+    css = { "prettierd" },
+    json = { "prettier", "prettierd" },
+    yaml = { "prettier", "prettierd" },
+    html = { "prettierd" },
     go = { "gofumpt", "goimports-reviser", "golines" },
     buf = { "buf" },
-    tf = { "tflint", "tfsec" },
     sql = { "sqlfmt" },
   },
 
