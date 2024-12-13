@@ -2,7 +2,7 @@ local lint = require "lint"
 
 lint.linters_by_ft = {
   tf = { "tflint", "tfsec" },
-  json = { "jasonlint" },
+  json = { "jsonlint" },
   go = { "golangcilint" },
 }
 
