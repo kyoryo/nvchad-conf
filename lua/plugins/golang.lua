@@ -6,7 +6,9 @@ local golang = {
     "nvim-treesitter/nvim-treesitter",
   },
   config = function()
-    require("go").setup()
+    require("go").setup {
+      tag_transform = "camelcase", -- set to e.g. 'snakecase' to transform to snake_case
+    }
   end,
   event = { "CmdlineEnter" },
   ft = { "go", "gomod" },
