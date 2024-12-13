@@ -1,5 +1,5 @@
 local M = {}
-local dap_go = require "configs.debugger.go"
+local dap_go = require "configs.debugger.goadapter"
 -- local dap_rust = require "configs.debugger.rust"
 
 function M.setup_dap_and_dapui(opts)
