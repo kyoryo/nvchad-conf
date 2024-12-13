@@ -54,7 +54,7 @@ lspconfig.sqlls.setup {
   capabilities = capabilities,
   cmd = { "sql-language-server", "up", "--method", "stdio" },
   filetypes = { "sql", "mysql" },
-  -- root_dir = function(_)
-  --   return vim.loop.cwd()
-  -- end,
+  root_dir = function(_)
+    return vim.loop.cwd()
+  end,
 }
