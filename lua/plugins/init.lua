@@ -68,6 +68,9 @@ return {
       require "configs.nvimlint"
     end,
   },
+  {
+    "nanotee/sqls.nvim",
+  },
   -- {
   --   "sshelll/gott.nvim",
   --   dependencies = {

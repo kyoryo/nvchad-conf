@@ -47,16 +47,19 @@ lspconfig.gopls.setup {
   },
 }
 
--- sqlls
-lspconfig.sqlls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
+lspconfig.sqls.setup {
+  on_attach = function(client, bufnr)
+    require("sqls").on_attach(client, bufnr)
+  end,
   capabilities = capabilities,
-  cmd = { "sql-language-server", "up", "--method", "stdio" },
-  filetypes = { "sql", "mysql" },
-  root_dir = util.root_pattern ".sqllsrc.json",
-  -- root_dir = function(_)
-  --
-  --   return vim.loop.cwd()
-  -- end,
+  settings = {
+    sqls = {
+      connections = {
+        {
+          driver = "postgresql",
+          dataSourceName = "postgres://usr:pwd@localhost:5432/dbname?sslmode=disable",
+        },
+      },
+    },
+  },
 }
