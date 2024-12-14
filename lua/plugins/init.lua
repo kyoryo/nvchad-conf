@@ -62,18 +62,12 @@ return {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       -- extend sources
-      table.insert(opts.sources, { name = "vim-dadbod-completion" })
+      -- remove 1, to remove 1st priority
+      table.insert(opts.sources, 1, { name = "vim-dadbod-completion" })
     end,
   },
   {
     "nvim-telescope/telescope-live-grep-args.nvim",
-  },
-  {
-    "mfussenegger/nvim-lint",
-    event = { "BufWritePre", "BufNewFile" },
-    config = function()
-      require "configs.nvimlint"
-    end,
   },
   -- {
   --   "nanotee/sqls.nvim", --sqls adapter

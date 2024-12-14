@@ -6,6 +6,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local servers = { "html", "cssls", "buf_ls", "terraformls" }
 local util = require "lspconfig/util"
+local configs = require "lspconfig/configs"
 
 -- Add folding capabilities required by ufo.nvim
 capabilities.textDocument.foldingRange = {
