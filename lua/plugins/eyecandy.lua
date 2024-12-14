@@ -68,6 +68,7 @@ return {
     },
   },
   {
+    -- for terminal that do not have graphical capabilities (like kitty)
     "sphamba/smear-cursor.nvim",
     event = { "BufEnter" },
     opts = {

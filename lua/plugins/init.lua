@@ -60,11 +60,10 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    opts = { -- expand snippet from nvchad default config
-      sources = {
-        { name = "vim-dadbod-completion" },
-      },
-    },
+    opts = function(_, opts)
+      -- extend sources
+      table.insert(opts.sources, { name = "vim-dadbod-completion" })
+    end,
   },
   {
     "nvim-telescope/telescope-live-grep-args.nvim",
