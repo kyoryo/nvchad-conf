@@ -47,19 +47,22 @@ lspconfig.gopls.setup {
   },
 }
 
-lspconfig.sqls.setup {
-  on_attach = function(client, bufnr)
-    require("sqls").on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-  settings = {
-    sqls = {
-      connections = {
-        {
-          driver = "postgresql",
-          dataSourceName = "postgres://usr:pwd@localhost:5432/dbname?sslmode=disable",
-        },
-      },
-    },
-  },
-}
+-- sqls language server
+-- uncomment to enable sqls completion, require a working connections
+-- could be used as complementary to vim-dadbod
+-- lspconfig.sqls.setup {
+--   on_attach = function(client, bufnr)
+--     require("sqls").on_attach(client, bufnr)
+--   end,
+--   capabilities = capabilities,
+--   settings = {
+--     sqls = {
+--       connections = {
+--         {
+--           driver = "postgresql",
+--           dataSourceName = "postgres://test_user:test_pwd_123@localhost:5432/trx_db_test?sslmode=disable",
+--         },
+--       },
+--     },
+--   },
+-- }

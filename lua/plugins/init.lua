@@ -59,6 +59,14 @@ return {
     },
   },
   {
+    "hrsh7th/nvim-cmp",
+    opts = { -- expand snippet from nvchad default config
+      sources = {
+        { name = "vim-dadbod-completion" },
+      },
+    },
+  },
+  {
     "nvim-telescope/telescope-live-grep-args.nvim",
   },
   {
@@ -68,9 +76,9 @@ return {
       require "configs.nvimlint"
     end,
   },
-  {
-    "nanotee/sqls.nvim",
-  },
+  -- {
+  --   "nanotee/sqls.nvim", --sqls adapter
+  -- },
   -- {
   --   "sshelll/gott.nvim",
   --   dependencies = {
