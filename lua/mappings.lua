@@ -18,6 +18,8 @@ map("n", "<C-Right>", "<C-w>l", { desc = "Pane move right" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Pane move up" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Pane move down" })
 map("n", "<leader><leader>x", ":%bd|e#|bd#<cr>|'\"<CR>", { desc = "buffer close except current" }) --https://stackoverflow.com/a/60948057
+-- map("n", "<C-f>", ":cn<CR>", { desc = "Quickfix next" })
+-- map("n", "<C-b>", ":cp<CR>", { desc = "Quickfix prev" })
 -- map("i", "jk", "<ESC>", { desc = "type jk in insert mode to esc" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
