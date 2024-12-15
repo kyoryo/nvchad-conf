@@ -10,7 +10,6 @@ local golang = {
       tag_transform = "camelcase", -- set to e.g. 'snakecase' to transform to snake_case
     }
   end,
-  event = { "CmdlineEnter" },
   ft = { "go", "gomod" },
   build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 }

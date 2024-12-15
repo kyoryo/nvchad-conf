@@ -8,7 +8,7 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
       },
-      lazy = false,
+      event = "BufEnter",
       config = function()
         require "configs.dropbar"
       end,
@@ -20,7 +20,7 @@ return {
   },
   {
     "karb94/neoscroll.nvim",
-    lazy = false,
+    event = { "BufEnter" },
     config = function()
       require("neoscroll").setup {
         mappings = { -- Keys to be mapped to their corresponding default scrolling animation

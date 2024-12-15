@@ -9,7 +9,6 @@ return {
   {
     "mrcjkb/rustaceanvim",
     version = "^5", -- Recommended
-    lazy = false, -- This plugin is already lazy
     ft = "rust",
     config = function()
       local mason_registry = require "mason-registry"
