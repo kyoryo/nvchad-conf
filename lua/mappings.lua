@@ -263,3 +263,17 @@ map(
   { desc = "Zen toggle" }
 )
 map("n", "<leader>zt", '<cmd>lua require("twilight").toggle()<CR>', { desc = "Twilight Toggle" })
+
+-- treesj
+map({ "n", "x" }, "<leader>st", "<cmd>lua require('treesj').toggle()<CR>", { desc = "Treesj Toggle" })
+map({ "n", "x" }, "<leader>sj", "<cmd>lua require('treesj').join()<CR>", { desc = "Treesj Join Lines" })
+map({ "n", "x" }, "<leader>ss", "<cmd>lua require('treesj').split()<CR>", { desc = "Treesj Split Lines" })
+map({ "n", "x" }, "<leader>sT", function()
+  require("treesj").toggle { split = { recursive = true } }
+end, { desc = "Treesj Toggle Lines recursive" })
+map({ "n", "x" }, "<leader>sJ", function()
+  require("treesj").join { split = { recursive = true } }
+end, { desc = "Treesj Join Lines recursive" })
+map({ "n", "x" }, "<leader>sS", function()
+  require("treesj").split { split = { recursive = true } }
+end, { desc = "Treesj Split Lines recursive" })
