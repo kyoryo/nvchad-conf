@@ -36,8 +36,9 @@ return {
   {
     "echasnovski/mini.ai",
     version = "*",
-    config = function()
-      require("mini.ai").setup()
+    event = "VeryLazy",
+    config = function(_, opts)
+      require("mini.ai").setup(opts)
     end,
   },
   {
