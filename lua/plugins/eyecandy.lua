@@ -93,4 +93,11 @@ return {
       transparent_bg_fallback_color = "#303030",
     },
   },
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    -- event = { "BufEnter" },
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  },
 }

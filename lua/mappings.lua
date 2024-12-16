@@ -200,6 +200,9 @@ map("n", "<leader>dus", function()
   local sidebar = widgets.sidebar(widgets.scopes)
   sidebar.open()
 end, { desc = "DEBUG open sidebar" })
+map("n", "<space>dh", function()
+  require("dapui").eval(nil, { enter = true })
+end, { desc = "DEBUG eval var under cursor" })
 
 -- dap go
 map("n", "<leader>dgt", function()
@@ -281,3 +284,12 @@ end, { desc = "Treesj Join Lines recursive" })
 map({ "n", "x" }, "<leader>sS", function()
   require("treesj").split { split = { recursive = true } }
 end, { desc = "Treesj Split Lines recursive" })
+
+-- lsp lines
+map("n", "<leader>lt", function()
+  require "lsp_lines"
+  vim.diagnostic.config {
+    virtual_text = not vim.diagnostic.config().virtual_text,
+    virtual_lines = vim.diagnostic.config().virtual_text,
+  }
+end, { desc = "Toggle LSP error lines" })
