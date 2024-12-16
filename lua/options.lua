@@ -31,6 +31,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- autosession config
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- vim default notify
+vim.notify = require "notify"
+
 -- highlight dap lines
 vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = "#993939", bg = "#31353f" })
 vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = "#61afef", bg = "#31353f" })
