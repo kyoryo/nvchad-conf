@@ -250,7 +250,10 @@ map("n", "<leader>tqt", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix Lis
 
 -- AI generation (codeium)
 map("i", "<C-g>", function()
-  return vim.fn["codeium#Accept"]()
+  local accepted = vim.fn["codeium#Accept"]()
+  -- exit insert mode after accept codeium completion
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+  return accepted
 end, { expr = true, silent = true, desc = "AI accept suggestion" })
 map("i", "<C-]>", function()
   return vim.fn["codeium#CycleCompletions"](1)
