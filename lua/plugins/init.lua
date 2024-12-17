@@ -67,6 +67,27 @@ return {
     end,
   },
   {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        {
+          "nvim-telescope/telescope-frecency.nvim",
+        },
+      },
+    },
+    opts = function(_, opts)
+      table.insert(opts.extensions_list, "fzf")
+      table.insert(opts.extensions_list, "frecency")
+    end,
+    config = function(_, opts)
+      require("telescope").setup(opts)
+      require("telescope").load_extension "fzf"
+      require("telescope").load_extension "frecency"
+    end,
+  },
+  {
     "nvim-telescope/telescope-live-grep-args.nvim",
   },
   -- {
