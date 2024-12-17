@@ -14,10 +14,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
   end,
 })
 
-vim.keymap.set("n", "<leader>li", function()
-  lint.try_lint()
-end, { desc = "Trigger linting for current file" })
-
 vim.api.nvim_create_user_command("LintInfo", function()
   local filetype = vim.bo.filetype
   local linters = require("lint").linters_by_ft[filetype]

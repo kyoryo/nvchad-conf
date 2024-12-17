@@ -293,3 +293,8 @@ map("n", "<leader>lt", function()
     virtual_lines = vim.diagnostic.config().virtual_text,
   }
 end, { desc = "Toggle LSP error lines" })
+
+-- nvim lint
+map("n", "<leader>li", function()
+  require("lint").try_lint()
+end, { desc = "Trigger linting for current file" })
