@@ -3,6 +3,7 @@ local hop = {
   version = "*",
   opts = {
     keys = "etovxqpdygfblzhckisuran",
+    -- keys = "fbydxq;sjgtvizmceurlpak", -- colemakdh equivalent
   },
 }
 return hop
