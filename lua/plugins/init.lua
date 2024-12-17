@@ -69,26 +69,40 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-        {
-          "nvim-telescope/telescope-frecency.nvim",
-        },
-      },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-frecency.nvim" },
+      { "nvim-telescope/telescope-live-grep-args.nvim" },
     },
     opts = function(_, opts)
       table.insert(opts.extensions_list, "fzf")
       table.insert(opts.extensions_list, "frecency")
+      table.insert(opts.extensions_list, "live_grep_args")
     end,
     config = function(_, opts)
-      require("telescope").setup(opts)
-      require("telescope").load_extension "fzf"
-      require("telescope").load_extension "frecency"
+      local telescope = require "telescope"
+      local actions = require "telescope.actions"
+      local lga_actions = require "telescope-live-grep-args.actions"
+
+      opts.extensions = {
+        live_grep_args = {
+          auto_quoting = true,
+          mappings = {
+            i = {
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
+              ["<C-t>"] = lga_actions.quote_prompt { postfix = " --type " },
+              -- freeze the current list and start a fuzzy search in the frozen list
+              ["<C-space>"] = actions.to_fuzzy_refine,
+            },
+          },
+        },
+      }
+
+      telescope.setup(opts)
+      telescope.load_extension "fzf"
+      telescope.load_extension "frecency"
+      telescope.load_extension "live_grep_args"
     end,
-  },
-  {
-    "nvim-telescope/telescope-live-grep-args.nvim",
   },
   -- {
   --   "nanotee/sqls.nvim", --sqls adapter
