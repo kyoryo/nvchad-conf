@@ -3,11 +3,11 @@ require "nvchad.options"
 -- add yours here!
 
 -- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
+-- o.cursorlineopt = "both" -- to enable cursorline!
 
 -- set default relative number
 vim.opt.relativenumber = true
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "100"
 
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = "unnamedplus"
