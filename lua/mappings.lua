@@ -153,6 +153,7 @@ map("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_wor
 -- hop
 local hop = require "hop"
 local directions = require("hop.hint").HintDirection
+local position = require("hop.hint").HintPosition
 -- replacing builtin vim f and t function
 map("", "f", function()
   hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
@@ -166,14 +167,38 @@ end, { remap = true, desc = "HOP till, current line after cursor" })
 map("", "T", function()
   hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
 end, { remap = true, desc = "HOP till, current line before cursor" })
+
 -- hop word
 map("n", "<leader><leader>w", function()
-  -- hop.hint_words()
-  hop.hint_words { directions = directions.AFTER_CURSOR, current_line_only = false }
-end, { remap = true, desc = "HOP word, all lines" })
-map("n", "<leader><leader>h", function()
-  hop.hint_words { directions = directions.BEFORE_CURSOR, current_line_only = false }
-end, { remap = true, desc = "HOP word, all lines" })
+  hop.hint_words { direction = directions.AFTER_CURSOR, current_line_only = false }
+end, { remap = true, desc = "HOP word, after cursor" })
+map("n", "<leader><leader>b", function()
+  hop.hint_words { direction = directions.BEFORE_CURSOR, current_line_only = false }
+end, { remap = true, desc = "HOP word, before cursor" })
+map("n", "<leader><leader>e", function()
+  hop.hint_words { direction = directions.AFTER_CURSOR, current_line_only = false, position = position.END }
+end, { remap = true, desc = "HOP end word, after cursor" })
+map("n", "<leader><leader>ge", function()
+  hop.hint_words { direction = directions.BEFORE_CURSOR, current_line_only = false, position = position.END }
+end, { remap = true, desc = "HOP end word, before cursor" })
+
+-- hop camel case
+map("n", "<leader><leader>c", ":HopCamelCaseCurrentLineAC<cr>", { silent = true, desc = "HOP camel, after cursor" })
+map("n", "<leader><leader>C", ":HopCamelCaseCurrentLineBC<cr>", { silent = true, desc = "HOP camel, before cursor" })
+
+-- hop line
+map("n", "<leader><leader>j", function()
+  hop.hint_lines_skip_whitespace { direction = directions.AFTER_CURSOR }
+end, { remap = true, desc = "HOP line, after cursor" })
+map("n", "<leader><leader>k", function()
+  hop.hint_lines_skip_whitespace { direction = directions.BEFORE_CURSOR }
+end, { remap = true, desc = "HOP line, before cursor" })
+map("n", "<leader><leader>h", "") -- disable dulu
+-- map("n", "<leader><leader>h", function()
+--   hop.hint_words { direction = directions.BEFORE_CURSOR, current_line_only = false }
+-- end, { remap = true, desc = "HOP word, all lines" })
+
+--:lua require'hop'.hint_words({ })
 
 -- debug keymap
 local dap = require "dap"

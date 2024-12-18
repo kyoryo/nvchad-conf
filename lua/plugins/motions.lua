@@ -1,5 +1,14 @@
 return {
   {
+    "smoka7/hop.nvim",
+    version = "*",
+    opts = {
+      -- keys = "etovxqpdygfblzhckisuran", -- bepo keyboard layout, but it's good
+      -- keys = "arstneiohdmgcbpfjluwykv",
+      keys = "estnriaogmdhvkbjplfuwy", -- colemakdh equivalent
+    },
+  },
+  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
@@ -41,6 +50,10 @@ return {
       require("mini.ai").setup(opts)
     end,
   },
+  -- enhance w,e,b,ge motions. such as move through camel case
+  -- {
+  --   "chrisgrieser/nvim-spider",
+  -- },
   {
     "Wansmer/treesj",
     -- keys = { "<space>mt", "<space>j", "<space>s" },
