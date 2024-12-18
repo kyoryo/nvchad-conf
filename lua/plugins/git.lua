@@ -1,12 +1,10 @@
 return {
   {
-    -- this include diffView and mergeView
     "sindrets/diffview.nvim",
-    config = function()
-      require("diffview").setup()
-    end,
+    cmd = {
+      "DiffviewOpen",
+    },
   },
-
   {
     -- to copy git link on a line
     "juacker/git-link.nvim",
