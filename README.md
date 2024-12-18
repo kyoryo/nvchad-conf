@@ -3,7 +3,7 @@ Starter config for NvChad
 
 quick installation
 
-`git clone https://github.com/kyoryo/nvchad-conf.git ~/.config/nvim/`
+ngit clone https://github.com/kyoryo/nvchad-conf.git ~/.config/nvim/`
 
 run these after cloning
 
@@ -17,7 +17,7 @@ if delve is not installed, you need manually install it via
 Make sure that path is set up in your shell
 example if using fish
 
-```
+```bash
 fish_add_path -U "/home/<username>/.local/share/nvim/mason/bin/"
 ```
 
