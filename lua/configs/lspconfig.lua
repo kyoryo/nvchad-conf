@@ -4,7 +4,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "buf_ls", "terraformls" }
+local servers = { "html", "cssls", "buf_ls" }
 local util = require "lspconfig/util"
 local configs = require "lspconfig/configs"
 
@@ -46,6 +46,15 @@ lspconfig.gopls.setup {
       },
     },
   },
+}
+
+-- terraform
+lspconfig.terraformls.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  cmd = { "terraform-ls", "serve" },
+  filetypes = { "terraform", "terraform-vars" },
 }
 
 -- sqls language server
