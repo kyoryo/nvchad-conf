@@ -16,7 +16,6 @@ local debugger = {
     "Goose97/timber.nvim",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
-    -- keys = "g",
     config = function(_, opts)
       require("configs.timber").setup(opts)
     end,

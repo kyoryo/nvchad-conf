@@ -326,3 +326,11 @@ end, { desc = "Toggle LSP error lines" })
 map("n", "<leader>li", function()
   require("lint").try_lint()
 end, { desc = "Trigger linting for current file" })
+
+-- timber
+map("n", "glc", function()
+  require("timber.actions").clear_log_statements { global = false }
+end, { desc = "clear log in current buffer" })
+map("n", "glC", function()
+  require("timber.actions").clear_log_statements { global = true }
+end, { desc = "clear log in projects" })

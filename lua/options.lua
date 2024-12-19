@@ -54,6 +54,20 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+-- on linux/wsl only I think, not tested on macos
+-- vim.g.clipboard = {
+--   name = "xclip",
+--   copy = {
+--     ["+"] = "xclip -selection clipboard",
+--     ["*"] = "xclip -selection primary",
+--   },
+--   paste = {
+--     ["+"] = "xclip -selection clipboard -o",
+--     ["*"] = "xclip -selection primary -o",
+--   },
+--   cache_enabled = true,
+-- }
+
 -- Show line diagnostics automatically in hover window
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
