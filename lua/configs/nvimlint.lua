@@ -4,6 +4,7 @@ lint.linters_by_ft = {
   tf = { "tflint", "tfsec" },
   json = { "jsonlint" },
   go = { "golangcilint" },
+  yaml = { "yamllint" },
 }
 
 local lint_group = vim.api.nvim_create_augroup("lint", { clear = true })

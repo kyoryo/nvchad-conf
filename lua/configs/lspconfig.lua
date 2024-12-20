@@ -57,6 +57,16 @@ lspconfig.terraformls.setup {
   filetypes = { "terraform", "terraform-vars" },
 }
 
+-- yaml ls
+-- lspconfig.yamlls.setup {
+--   on_attach = on_attach,
+--   on_init = on_init,
+--   capabilities = capabilities,
+--   schemas = {
+--     ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/heads/main/schemas/v3.1/schema.yaml"] = "~/git/Ojire/be/api/*",
+--   },
+-- }
+
 -- sqls language server
 -- uncomment to enable sqls completion, require a working connections
 -- could be used as complementary to vim-dadbod
