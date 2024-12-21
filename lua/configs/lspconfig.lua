@@ -1,4 +1,5 @@
--- EXAMPLE
+-- for enabling inlay hints see opts here https://github.com/MysticalDevil/inlay-hints.nvim
+--
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
@@ -43,7 +44,20 @@ lspconfig.gopls.setup {
       usePlaceholders = true,
       analyses = {
         unusedparams = true,
+        unreachable = true,
+        unusedwrite = true,
+        unusedvariable = true,
       },
+      verboseOutput = false, -- debugging purposes
+      -- hints = { -- inlay hints
+      --   rangeVariableTypes = true,
+      --   parameterNames = true,
+      --   constantValues = true,
+      --   assignVariableTypes = true,
+      --   compositeLiteralFields = true,
+      --   compositeLiteralTypes = true,
+      --   functionTypeParameters = true,
+      -- },
     },
   },
 }

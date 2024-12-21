@@ -5,20 +5,19 @@ require "nvchad.options"
 -- local o = vim.o
 -- o.cursorlineopt = "both" -- to enable cursorline!
 
--- set default relative number
-vim.opt.relativenumber = true
-vim.opt.colorcolumn = "100"
+vim.opt.relativenumber = true -- set default relative number
+vim.opt.number = true -- set default absolute number
+vim.opt.colorcolumn = "100" -- column marker, comment to disable
 
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = "unnamedplus"
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = true -- convert tabs to spaces
 
--- ignore cases (cmd autocomplete)
-vim.opt.ignorecase = true
--- gui colors
-vim.opt.termguicolors = true
+vim.opt.ignorecase = true -- ignore cases (cmd autocomplete)
+-- vim.opt.smartcase = true -- case insensitive if all lowercase, case sensitive otherwise
+vim.opt.termguicolors = true -- gui colors
 
 -- highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -27,6 +26,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   callback = function()
     vim.highlight.on_yank { higroup = "IncSearch", timeout = 100 }
+  end,
+})
+
+local CleanOnSave = vim.api.nvim_create_augroup("CleanOnSave", {})
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = CleanOnSave,
+  pattern = "*",
+  command = [[%s/\s\+$//e]],
+}) -- remove trailing whitespace from all lines before saving a file)
+
+-- vim.o.conceallevel = 0
+-- set conceal level to 1 for markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.conceallevel = 1
   end,
 })
 
