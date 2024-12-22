@@ -57,6 +57,7 @@ local opts = {
       tags = note.tags,
     }
 
+    -- add date only on init
     local getDate = function(metadata)
       local date = os.date "%Y-%M-%d"
       if metadata == nil then
@@ -65,9 +66,28 @@ local opts = {
       return metadata.date
     end
 
+    local getHubs = function(metadata)
+      local hubs = "[[]]"
+      if metadata == nil then
+        return hubs
+      end
+      return metadata.hubs
+    end
+
+    local getRefs = function(metadata)
+      local refs = "[[]]"
+      if metadata == nil then
+        return refs
+      end
+      return metadata.refs
+    end
+
     note.metadata = {
       date = getDate(note.metadata),
-      last_edited = os.date "%Y-%B-%d",
+      -- last_edited = os.date "%Y %B %d",
+      last_edited = os.date "%Y-%M-%d",
+      hubs = getHubs(note.metadata),
+      refs = getRefs(note.metadata),
     }
     -- `note.metadata` contains any manually added fields in the frontmatter.
     -- So here we just make sure those fields are kept in the frontmatter.
