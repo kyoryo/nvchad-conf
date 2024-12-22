@@ -30,11 +30,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 local CleanOnSave = vim.api.nvim_create_augroup("CleanOnSave", {})
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+-- remove trailing whitespace from all lines before saving a file, on specific file type
+vim.api.nvim_create_autocmd("FileType", {
   group = CleanOnSave,
-  pattern = "*",
-  command = [[%s/\s\+$//e]],
-}) -- remove trailing whitespace from all lines before saving a file)
+  pattern = { "markdown" },
+  callback = function()
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = CleanOnSave,
+      buffer = 0, -- Ensure this autocmd is specific to the current buffer
+      command = [[%s/\s\+$//e]], -- Remove trailing whitespace
+    })
+  end,
+})
+-- remove trailing whitespace from all lines before saving a file, and all type of files
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   group = CleanOnSave,
+--   pattern = "*",
+--   command = [[%s/\s\+$//e]],
+-- }) -- all files
 
 -- vim.o.conceallevel = 0
 -- set conceal level to 1 for markdown files

@@ -240,8 +240,7 @@ map("n", "<leader>dgl", function()
 end, { desc = "DEBUG debug last go test" })
 
 -- code action preview ui
-local actprev = require "actions-preview"
-map("n", "ga", actprev.code_actions, { desc = "LSP Code Action preview" })
+map("n", "ga", require("actions-preview").code_actions, { desc = "LSP Code Action preview" })
 map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "LSP hover" })
 
 -- copy external line link
@@ -336,3 +335,10 @@ end, { desc = "clear log in current buffer" })
 map("n", "glC", function()
   require("timber.actions").clear_log_statements { global = true }
 end, { desc = "clear log in projects" })
+
+-- obsidian
+map("n", "<leader>obn", ":lua require('obsidian')<CR>:ObsidianNew<CR>", { desc = "Obsidian new note" })
+map("n", "<leader>obs", ":lua require('obsidian')<CR>:ObsidianSearch<CR>", { desc = "Obsidian search" })
+map("n", "<leader>obt", ":lua require('obsidian')<CR>:ObsidianToday<CR>", { desc = "Obsidian today note" })
+map("n", "<leader>obx", ":lua require('obsidian')<CR>:ObsidianExtractNote<CR>", { desc = "Obsidian today note" })
+map("n", "<leader>ob#", ":lua require('obsidian')<CR>:ObsidianTags<CR>", { desc = "Obsidian tags" })
