@@ -33,6 +33,8 @@ map(
   ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { desc = "telescope live grep args" }
 )
+map("n", "<leader>fc", ":Telescope commands<CR>", { desc = "telescope find command" })
+
 -- fzf
 -- map("n", "<leader>fzf", ":lua require('fzf-lua').files()<CR>", { desc = "FZF find files" })
 local fzflua = require "fzf-lua"
