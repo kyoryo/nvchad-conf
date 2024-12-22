@@ -1,6 +1,7 @@
 local debugger = {
   {
     "mfussenegger/nvim-dap",
+    keys = { "<leader>d" },
     dependencies = {
       "nvim-neotest/nvim-nio",
       "rcarriga/nvim-dap-ui",

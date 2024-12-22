@@ -59,7 +59,7 @@ local opts = {
 
     -- add date only on init
     local getDate = function(metadata)
-      local date = os.date "%Y-%M-%d"
+      local date = os.date "%Y-%m-%d"
       if metadata == nil then
         return date
       end
@@ -84,8 +84,7 @@ local opts = {
 
     note.metadata = {
       date = getDate(note.metadata),
-      -- last_edited = os.date "%Y %B %d",
-      last_edited = os.date "%Y-%M-%d",
+      last_edited = os.date "%Y-%m-%d",
       hubs = getHubs(note.metadata),
       refs = getRefs(note.metadata),
     }
