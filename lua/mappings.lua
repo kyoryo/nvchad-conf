@@ -292,12 +292,7 @@ map("i", "<C-x>", function()
 end, { expr = true, silent = true, desc = "AI clear suggestion" })
 
 -- zen mode
-map(
-  "n",
-  "<leader>zz",
-  '<cmd>lua require("zen-mode").toggle({ window = { width = 0.74 } })<CR>',
-  { desc = "Zen toggle" }
-)
+map("n", "<leader>zz", '<cmd>lua require("zen-mode").toggle()<CR>', { desc = "Zen toggle" })
 map("n", "<leader>zt", '<cmd>lua require("twilight").toggle()<CR>', { desc = "Twilight Toggle" })
 
 -- treesj

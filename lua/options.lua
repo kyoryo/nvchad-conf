@@ -19,6 +19,13 @@ vim.opt.ignorecase = true -- ignore cases (cmd autocomplete)
 -- vim.opt.smartcase = true -- case insensitive if all lowercase, case sensitive otherwise
 vim.opt.termguicolors = true -- gui colors
 
+-- Fold options
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff:╱]]
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 -- highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", {}),

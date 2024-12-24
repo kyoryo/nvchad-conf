@@ -52,11 +52,20 @@ return {
   -- Lua
   {
     "folke/zen-mode.nvim",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
+    config = function()
+      require("zen-mode").setup {
+        window = { width = 0.74 },
+        plugins = {
+          twilight = { enabled = false },
+        },
+        options = {
+          -- foldcolumn = "9", -- disable fold column
+        },
+        on_open = function()
+          vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+        end,
+      }
+    end,
   },
   -- Lua
   {
