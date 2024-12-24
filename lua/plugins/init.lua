@@ -104,6 +104,11 @@ return {
       telescope.load_extension "live_grep_args"
     end,
   },
+  {
+    -- workoaround of :w !sudo tee %
+    "lambdalisue/vim-suda",
+    cmd = { "SudaRead", "SudaWrite" },
+  },
   -- {
   --   "nanotee/sqls.nvim", --sqls adapter
   -- },
