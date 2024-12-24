@@ -105,7 +105,7 @@ return {
     end,
   },
   {
-    -- workoaround of :w !sudo tee %
+    -- workaround of :w !sudo tee %
     "lambdalisue/vim-suda",
     cmd = { "SudaRead", "SudaWrite" },
   },
