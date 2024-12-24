@@ -52,6 +52,7 @@ return {
   -- Lua
   {
     "folke/zen-mode.nvim",
+    cmd = "ZenMode",
     config = function()
       require("zen-mode").setup {
         window = { width = 0.74 },
@@ -70,6 +71,7 @@ return {
   -- Lua
   {
     "folke/twilight.nvim",
+    cmd = "Twilight",
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings

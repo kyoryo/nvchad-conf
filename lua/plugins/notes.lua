@@ -11,6 +11,7 @@ return {
     "ObsidianToday",
     "ObsidianYesterday",
     "ObsidianTommorow",
+    "ObsidianTags",
   },
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
