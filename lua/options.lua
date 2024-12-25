@@ -175,6 +175,8 @@ local function is_wsl()
   return false
 end
 
+-- wsl-clipboard support nvim, tmux and unicode
+-- on wsl we could use xsel but it doesnt support unicode, so better install wsl-clipboard
 -- If current linux is under WSL then use wclip.exe
 -- More info: https://github.com/memoryInject/wsl-clipboard
 if is_wsl() then
