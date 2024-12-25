@@ -18,6 +18,8 @@ map("n", "<C-Right>", "<C-w>l", { desc = "Pane move right" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Pane move up" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Pane move down" })
 map("n", "<leader><leader>x", ":%bd|e#|bd#<cr>|'\"<CR>", { desc = "Buffer close except current" }) --https://stackoverflow.com/a/60948057
+map("n", "<C-PageDown>", ":cn<CR>", { desc = "Quickfix next" })
+map("n", "<C-PageUp>", ":cp<CR>", { desc = "Quickfix prev" })
 map("n", "]q", ":cn<CR>", { desc = "Quickfix next" })
 map("n", "[q", ":cp<CR>", { desc = "Quickfix prev" })
 map("n", "]b", ":bn<CR>", { desc = "Buffer next" })
@@ -25,6 +27,14 @@ map("n", "[b", ":bp<CR>", { desc = "Buffer prev" })
 -- map("i", "jk", "<ESC>", { desc = "type jk in insert mode to esc" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- comment
+nomap("n", "<leader>/")
+nomap("v", "<leader>/")
+
+-- <C-_> is same as <C-/>
+map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
+map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
 
 -- telescope
 map(
