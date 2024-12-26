@@ -121,4 +121,9 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
   },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = { "BufEnter" },
+  },
 }
