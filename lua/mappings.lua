@@ -12,7 +12,8 @@ nomap("n", "<tab>")
 
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
+-- map("n", ";", ":", { desc = "CMD enter command mode" })
+
 map("n", "<C-Left>", "<C-w>h", { desc = "Pane move left" })
 map("n", "<C-Right>", "<C-w>l", { desc = "Pane move right" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Pane move up" })
@@ -174,18 +175,18 @@ local hop = require "hop"
 local directions = require("hop.hint").HintDirection
 local position = require("hop.hint").HintPosition
 -- replacing builtin vim f and t function
-map("", "f", function()
-  hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
-end, { remap = true, desc = "HOP find, current line after cursor" })
-map("", "F", function()
-  hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true }
-end, { remap = true, desc = "HOP find, current line before cursor" })
-map("", "t", function()
-  hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }
-end, { remap = true, desc = "HOP till, current line after cursor" })
-map("", "T", function()
-  hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
-end, { remap = true, desc = "HOP till, current line before cursor" })
+-- map("", "f", function()
+--   hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
+-- end, { remap = true, desc = "HOP find, current line after cursor" })
+-- map("", "F", function()
+--   hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true }
+-- end, { remap = true, desc = "HOP find, current line before cursor" })
+-- map("", "t", function()
+--   hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }
+-- end, { remap = true, desc = "HOP till, current line after cursor" })
+-- map("", "T", function()
+--   hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
+-- end, { remap = true, desc = "HOP till, current line before cursor" })
 
 -- hop word
 map("n", "<leader><leader>w", function()
