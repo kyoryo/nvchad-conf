@@ -258,7 +258,7 @@ map("n", "<leader>dgl", function()
 end, { desc = "DEBUG debug last go test" })
 
 -- code action preview ui
-map("n", "ga", require("actions-preview").code_actions, { desc = "LSP Code Action preview" })
+map("n", "ga", "<cmd>lua require('actions-preview').code_actions()<CR>", { desc = "LSP Code Action preview" })
 map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "LSP hover" })
 
 -- copy external line link
