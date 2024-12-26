@@ -17,10 +17,12 @@ return {
   {
     -- preview for lsp code actions
     "aznhe21/actions-preview.nvim",
+    keys = { "<leader>ga" },
   },
   {
     "karb94/neoscroll.nvim",
-    event = { "BufEnter" },
+    -- event = { "BufEnter" },
+    keys = { "zt", "zz", "zb" },
     config = function()
       require("neoscroll").setup {
         mappings = { -- Keys to be mapped to their corresponding default scrolling animation
