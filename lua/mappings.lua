@@ -48,7 +48,7 @@ map("n", "<leader>fc", ":Telescope commands<CR>", { desc = "telescope find comma
 map(
   "n",
   "<leader>fu",
-  ":Telescope frecency workspace=CWD path_display={'shorten'} theme=ivy<CR>",
+  ":Telescope frecency workspace=CWD path_display={'shorten'}<CR>",
   { desc = "telescope most used files (frecency)" }
 )
 
