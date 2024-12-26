@@ -24,6 +24,7 @@ map("n", "]q", ":cn<CR>", { desc = "Quickfix next" })
 map("n", "[q", ":cp<CR>", { desc = "Quickfix prev" })
 map("n", "]b", ":bn<CR>", { desc = "Buffer next" })
 map("n", "[b", ":bp<CR>", { desc = "Buffer prev" })
+
 -- map("i", "jk", "<ESC>", { desc = "type jk in insert mode to esc" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
@@ -44,6 +45,12 @@ map(
   { desc = "telescope live grep args" }
 )
 map("n", "<leader>fc", ":Telescope commands<CR>", { desc = "telescope find command" })
+map(
+  "n",
+  "<leader>fu",
+  ":Telescope frecency workspace=CWD path_display={'shorten'} theme=ivy<CR>",
+  { desc = "telescope most used files (frecency)" }
+)
 
 -- fzf
 -- map("n", "<leader>fzf", ":lua require('fzf-lua').files()<CR>", { desc = "FZF find files" })
@@ -347,3 +354,11 @@ map("n", "<leader>obs", ":lua require('obsidian')<CR>:ObsidianSearch<CR>", { des
 map("n", "<leader>obt", ":lua require('obsidian')<CR>:ObsidianToday<CR>", { desc = "Obsidian today note" })
 map("n", "<leader>obx", ":lua require('obsidian')<CR>:ObsidianExtractNote<CR>", { desc = "Obsidian today note" })
 map("n", "<leader>ob#", ":lua require('obsidian')<CR>:ObsidianTags<CR>", { desc = "Obsidian tags" })
+
+-- mini files
+map(
+  "n",
+  "<leader>mfo",
+  ":lua require('mini.files')<CR>:lua require('mini.files').open()<CR>",
+  { desc = "MiniFiles Open" }
+)

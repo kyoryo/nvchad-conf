@@ -127,20 +127,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "QuitPre" }, {
   end,
 })
 
--- on linux/wsl only I think, not tested on macos
--- vim.g.clipboard = {
---   name = "xclip",
---   copy = {
---     ["+"] = "xclip -selection clipboard",
---     ["*"] = "xclip -selection primary",
---   },
---   paste = {
---     ["+"] = "xclip -selection clipboard -o",
---     ["*"] = "xclip -selection primary -o",
---   },
---   cache_enabled = true,
--- }
-
 -- Show line diagnostics automatically in hover window
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
@@ -175,8 +161,10 @@ local function is_wsl()
   return false
 end
 
--- wsl-clipboard support nvim, tmux and unicode
--- on wsl we could use xsel but it doesnt support unicode, so better install wsl-clipboard
+-- wsl-clipboard support nvim, tmux and unicode.
+-- on wsl we could use xsel but it doesnt support unicode, so better install wsl-clipboard.
+-- xclip does't work on wsl, but support unicode.
+--
 -- If current linux is under WSL then use wclip.exe
 -- More info: https://github.com/memoryInject/wsl-clipboard
 if is_wsl() then
