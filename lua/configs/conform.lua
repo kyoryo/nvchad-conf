@@ -20,7 +20,7 @@ local options = {
     golines = {
       -- Specify the binary name or path to the formatter
       cmd = "golines",
-      args = { "-m", "100" }, -- Pass the `-m 128` argument
+      args = { "-m", "120" }, -- Pass the `-m 128` argument
       stdin = true, -- Indicates that the formatter accepts input via stdin
     },
   },
