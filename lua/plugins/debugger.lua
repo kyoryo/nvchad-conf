@@ -3,15 +3,19 @@ local debugger = {
     "mfussenegger/nvim-dap",
     keys = { "<leader>d" },
     dependencies = {
-      "nvim-neotest/nvim-nio",
-      "rcarriga/nvim-dap-ui",
-      "theHamsta/nvim-dap-virtual-text",
-      "leoluz/nvim-dap-go",
+      { "nvim-neotest/nvim-nio" },
+      { "rcarriga/nvim-dap-ui" },
+      { "theHamsta/nvim-dap-virtual-text" },
     },
     config = function(_, opts)
       -- vim.notify(vim.inspect(opts))
       require("configs.debugger").setup(opts)
     end,
+  },
+  {
+    "leoluz/nvim-dap-go",
+    -- ft = { "go" },
+    dependencies = { "mfussenegger/nvim-dap" },
   },
   {
     "Goose97/timber.nvim",

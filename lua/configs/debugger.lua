@@ -25,7 +25,10 @@ end
 
 function M.setup(opts)
   M.setup_dap_and_dapui(opts)
-  dap_go.setup_adapter()
+
+  if vim.bo.filetype == "go" then
+    dap_go.setup_adapter()
+  end
 end
 
 return M

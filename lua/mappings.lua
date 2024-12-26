@@ -227,6 +227,7 @@ end, { desc = "DEBUG add breakpoint at line" })
 map("n", "<leader>dc", function()
   require("dap").continue()
 end, { desc = "DEBUG continue" })
+
 map("n", "<F1>", function()
   require("dap").continue()
 end, { desc = "DEBUG continue" })
