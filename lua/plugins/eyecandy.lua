@@ -8,7 +8,7 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
       },
-      event = "BufEnter",
+      event = "BufEnter *.*",
       config = function()
         require "configs.dropbar"
       end,
