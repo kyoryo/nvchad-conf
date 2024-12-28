@@ -4,10 +4,6 @@ local opts = {
       name = "pc personal",
       path = "/mnt/c/Users/franz/Dropbox/ObsidianVault/kyoryo",
     },
-    {
-      name = "mac werk",
-      path = "~/Dropbox/ObsidianVault/kyoryo",
-    },
   },
 
   notes_subdir = "literature_notes",
