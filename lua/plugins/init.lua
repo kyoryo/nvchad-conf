@@ -79,6 +79,13 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "nvim-telescope/telescope-frecency.nvim" },
       { "nvim-telescope/telescope-live-grep-args.nvim" },
+      {
+        "isak102/telescope-git-file-history.nvim",
+        dependencies = {
+          "nvim-lua/plenary.nvim",
+          "tpope/vim-fugitive",
+        },
+      },
     },
     opts = function(_, opts)
       table.insert(opts.extensions_list, "fzf")
@@ -109,6 +116,7 @@ return {
       telescope.load_extension "fzf"
       telescope.load_extension "frecency"
       telescope.load_extension "live_grep_args"
+      telescope.load_extension "git_file_history"
     end,
   },
   {
