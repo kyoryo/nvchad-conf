@@ -7,11 +7,16 @@ local nomap = vim.keymap.del
 -- disabled this so tab mapping doesn't interfere with ctrl-i
 -- moreover read here https://nvchad.com/docs/faq/#mapping_ctrl_+_o_/_i_keys
 nomap("n", "<tab>")
+nomap("n", "<C-n>")
+
+-- comment
+nomap("n", "<leader>/")
+nomap("v", "<leader>/")
 
 -- add yours here
 
 local map = vim.keymap.set
-
+map("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 -- map("n", ";", ":", { desc = "CMD enter command mode" })
 
 map("n", "<C-Left>", "<C-w>h", { desc = "Pane move left" })
@@ -19,20 +24,16 @@ map("n", "<C-Right>", "<C-w>l", { desc = "Pane move right" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Pane move up" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Pane move down" })
 map("n", "<leader><leader>x", ":%bd|e#|bd#<cr>|'\"<CR>", { desc = "Buffer close except current" }) --https://stackoverflow.com/a/60948057
-map("n", "<C-PageDown>", ":cn<CR>", { desc = "Quickfix next" })
-map("n", "<C-PageUp>", ":cp<CR>", { desc = "Quickfix prev" })
-map("n", "]q", ":cn<CR>", { desc = "Quickfix next" })
-map("n", "[q", ":cp<CR>", { desc = "Quickfix prev" })
+
+map("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Quickfix next" })
+map("n", "<C-p>", "<cmd>cprevious<CR>", { desc = "Quickfix prev" })
+
 map("n", "]b", ":bn<CR>", { desc = "Buffer next" })
 map("n", "[b", ":bp<CR>", { desc = "Buffer prev" })
 
 -- map("i", "jk", "<ESC>", { desc = "type jk in insert mode to esc" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-
--- comment
-nomap("n", "<leader>/")
-nomap("v", "<leader>/")
 
 -- <C-_> is same as <C-/>
 map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
@@ -380,3 +381,36 @@ map(
   ":lua require('mini.files')<CR>:lua require('mini.files').open()<CR>",
   { desc = "MiniFiles Open" }
 )
+
+map("n", "<leader>ta", function()
+  require("neotest").run.attach()
+end, { desc = "[t]est [a]ttach" })
+map("n", "<leader>tf", function()
+  require("neotest").run.run(vim.fn.expand "%")
+end, { desc = "[t]est run [f]ile" })
+map("n", "<leader>tA", function()
+  require("neotest").run.run(vim.uv.cwd())
+end, { desc = "[t]est [A]ll files" })
+map("n", "<leader>tS", function()
+  require("neotest").run.run { suite = true }
+end, { desc = "[t]est [S]uite" })
+map("n", "<leader>tn", function()
+  require("neotest").run.run()
+end, { desc = "[t]est [n]earest" })
+map("n", "<leader>tl", function()
+  require("neotest").run.run_last()
+end, { desc = "[t]est [l]ast" })
+map("n", "<leader>tsu", function()
+  require("neotest").summary.toggle()
+end, { desc = "[t]est [s]ummary" })
+map("n", "<leader>to", function()
+  require("neotest").output.open { enter = true, auto_close = true }
+end, { desc = "[t]est [o]utput" })
+map("n", "<leader>tO", function()
+  require("neotest").output_panel.toggle()
+end, { desc = "[t]est [O]utput panel" })
+map("n", "<leader>tt", function()
+  require("neotest").run.stop()
+end, { desc = "[t]est [t]erminate" })
+-- map("n", "<leader>td", function() require("neotest").run.run({ suite = false, strategy = "dap" }) end, {desc = "Debug nearest test" })
+-- map("n", "<leader>tD", function() require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" }) end, {desc = "Debug current file" })
