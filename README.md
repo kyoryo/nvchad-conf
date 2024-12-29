@@ -3,7 +3,7 @@ Starter config for NvChad
 
 quick installation
 
-ngit clone https://github.com/kyoryo/nvchad-conf.git ~/.config/nvim/`
+`git clone https://github.com/kyoryo/nvchad-conf.git ~/.config/nvim/`
 
 run these after cloning
 
