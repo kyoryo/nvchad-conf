@@ -17,9 +17,35 @@ M.ui = {
     theme = "default", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "default",
-    order = nil,
-    modules = nil,
+    separator_style = "round",
+    order = {
+      "mode",
+      "file",
+      "git",
+      "modified",
+      "%=",
+      "%=",
+      "lsp_msg",
+      "diagnostics",
+      "lsp",
+      "cwd",
+      "cursor",
+      -- "xyz",
+      -- "abc",
+    },
+    modules = {
+      modified = function()
+        local isModified = vim.bo.modified
+        if isModified then
+          -- return " ●"
+          return " [Modified]"
+        end
+        return ""
+      end,
+
+      -- xyz = "hi",
+      -- f = "%F",
+    },
   },
   -- lazyload it when there are 1+ buffers
   tabufline = {
@@ -33,6 +59,7 @@ M.ui = {
     -- },
     -- modules = nil,
   },
+  term = {},
 }
 M.nvdash = {
   load_on_startup = true,
