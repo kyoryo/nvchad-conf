@@ -24,7 +24,6 @@ M.ui = {
       "git",
       "modified",
       "%=",
-      "%=",
       "lsp_msg",
       "diagnostics",
       "lsp",
