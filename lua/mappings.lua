@@ -8,6 +8,7 @@ local nomap = vim.keymap.del
 -- moreover read here https://nvchad.com/docs/faq/#mapping_ctrl_+_o_/_i_keys
 nomap("n", "<tab>")
 nomap("n", "<C-n>")
+nomap("n", "<C-s>")
 
 -- comment
 nomap("n", "<leader>/")
