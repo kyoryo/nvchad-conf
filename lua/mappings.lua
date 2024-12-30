@@ -30,7 +30,7 @@ map("n", "<C-Up>", "<C-w>k", { desc = "Pane move up" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Pane move down" })
 
 -- enable this if tabuffline is disabled
-map("n", "<leader>n", "<cmd>bp | bd #<CR>", { desc = "Buffer close" })
+map("n", "<leader>x", "<cmd>bp | bd #<CR>", { desc = "Buffer close" })
 map("n", "<leader><leader>x", ":%bd|e#|bd#<cr>|'\"<CR>", { desc = "Buffer close except current" }) --https://stackoverflow.com/a/60948057
 
 map("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Quickfix next" })

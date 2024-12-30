@@ -72,14 +72,16 @@ lspconfig.terraformls.setup {
 }
 
 -- yaml ls
--- lspconfig.yamlls.setup {
---   on_attach = on_attach,
---   on_init = on_init,
---   capabilities = capabilities,
---   schemas = {
---     ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/heads/main/schemas/v3.1/schema.yaml"] = "~/git/Ojire/be/api/*",
---   },
--- }
+lspconfig.yamlls.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  schemas = {
+    -- ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/heads/main/schemas/v3.1/schema.yaml"] = "~/git/Ojire/be/api/*",
+    -- ["https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/refs/heads/main/configuration-schema.json"] = "*api*.{yml,yaml}",
+    ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/heads/main/schemas/v3.0/schema.yaml"] = "*api*.{yml,yaml}",
+  },
+}
 
 -- sqls language server
 -- uncomment to enable sqls completion, require a working connections

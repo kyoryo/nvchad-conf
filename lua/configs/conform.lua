@@ -4,6 +4,7 @@ local options = {
     css = { "prettierd" },
     json = { "prettier", "prettierd" },
     yaml = { "prettier", "prettierd" },
+    -- yaml = { "yamlfix" },
     html = { "prettierd" },
     go = { "gofumpt", "goimports-reviser", "golines" },
     buf = { "buf" },
