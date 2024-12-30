@@ -8,6 +8,9 @@ local nomap = vim.keymap.del
 -- moreover read here https://nvchad.com/docs/faq/#mapping_ctrl_+_o_/_i_keys
 nomap("n", "<tab>")
 nomap("n", "<C-n>")
+nomap("n", "<leader>x")
+nomap("n", "<leader>rn")
+nomap("n", "<leader>n")
 nomap("n", "<C-s>")
 
 -- comment
@@ -18,12 +21,16 @@ nomap("v", "<leader>/")
 
 local map = vim.keymap.set
 map("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+map("n", "<localleader>ttt", ":echo 'hello' <cr>") -- test
 -- map("n", ";", ":", { desc = "CMD enter command mode" })
 
 map("n", "<C-Left>", "<C-w>h", { desc = "Pane move left" })
 map("n", "<C-Right>", "<C-w>l", { desc = "Pane move right" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Pane move up" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Pane move down" })
+
+-- enable this if tabuffline is disabled
+map("n", "<leader>n", "<cmd>bp | bd #<CR>", { desc = "Buffer close" })
 map("n", "<leader><leader>x", ":%bd|e#|bd#<cr>|'\"<CR>", { desc = "Buffer close except current" }) --https://stackoverflow.com/a/60948057
 
 map("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Quickfix next" })
@@ -269,10 +276,10 @@ map("n", "<space>dh", function()
 end, { desc = "DEBUG eval var under cursor" })
 
 -- dap go
-map("n", "<leader>dgt", function()
+map("n", "<localleader>dgt", function()
   require("dap-go").debug_test()
 end, { desc = "DEBUG debug go test" })
-map("n", "<leader>dgl", function()
+map("n", "<localleader>dgl", function()
   require("dap-go").debug_last_test()
 end, { desc = "DEBUG debug last go test" })
 

@@ -5,6 +5,7 @@ local harpoon = {
   opts = {
     settings = {
       save_on_toggle = true,
+      save_on_change = true,
     },
   },
 }

@@ -25,6 +25,7 @@ M.ui = {
       "modified",
       "%=",
       "lsp_msg",
+      "%=",
       "diagnostics",
       "lsp",
       "cwd",
