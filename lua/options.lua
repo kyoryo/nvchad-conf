@@ -1,5 +1,5 @@
 require "nvchad.options"
-
+local colors = require("base46").get_theme_tb "base_30"
 -- add yours here!
 
 -- local o = vim.o
@@ -72,14 +72,30 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 vim.notify = require "notify"
 
 -- highlight dap lines
-vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = "#993939", bg = "#31353f" })
-vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = "#61afef", bg = "#31353f" })
-vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#98c379", bg = "#31353f" })
+vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = colors.red, bg = colors.one_bg1 })
+vim.api.nvim_set_hl(0, "DapBreakpointConditional", { ctermbg = 0, fg = colors.blue, bg = colors.one_bg2 })
+vim.api.nvim_set_hl(0, "DapBreakpointRejected", { ctermbg = 0, bg = colors.orange })
+vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = colors.green, bg = colors.one_bg3 })
+vim.api.nvim_set_hl(0, "DapStoppedLine", { ctermbg = 0, bg = colors.line })
+
 -- dap icons
+vim.fn.sign_define("DapBreakpoint", {
+  text = "󰙦 ",
+  texthl = "DapBreakpoint",
+  linehl = "",
+  numhl = "DapBreakpoint",
+})
 vim.fn.sign_define(
-  "DapBreakpoint",
-  -- { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
-  { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+  "DapBreakpointCondition",
+  { text = "󰙧 ", texthl = "DapBreakpointConditional", linehl = "", numhl = "DapBreakpointConditional" }
+)
+vim.fn.sign_define(
+  "DapBreakpointRejected",
+  { text = " ", texthl = "DapBreakpointRejected", linehl = "", numhl = "DapBreakpointRejected" }
+)
+vim.fn.sign_define(
+  "DapStopped",
+  { text = "", texthl = "DapStopped", linehl = "DapStoppedLine", numhl = "DapStopped" }
 )
 
 -- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

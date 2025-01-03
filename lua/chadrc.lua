@@ -43,7 +43,7 @@ M.ui = {
   },
   -- lazyload it when there are 1+ buffers
   tabufline = {
-    enabled = false,
+    enabled = true,
     -- lazyload = true,
     -- order = {
     --   "treeOffset",
