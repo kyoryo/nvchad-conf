@@ -66,6 +66,11 @@ return {
     },
   },
   {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+    requires = "nvim-treesitter/nvim-treesitter",
+  },
+  {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       -- extend sources
