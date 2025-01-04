@@ -77,8 +77,7 @@ lspconfig.yamlls.setup {
   on_init = on_init,
   capabilities = capabilities,
   schemas = {
-    -- ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/heads/main/schemas/v3.1/schema.yaml"] = "~/git/Ojire/be/api/*",
-    -- ["https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/refs/heads/main/configuration-schema.json"] = "*api*.{yml,yaml}",
+    ["https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/github-workflow.json"] = "*github/workflows/*",
     ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/heads/main/schemas/v3.0/schema.yaml"] = "*api*.{yml,yaml}",
   },
 }

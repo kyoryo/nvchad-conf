@@ -1,5 +1,4 @@
 local linterConfig = vim.fn.stdpath "config" .. "/.linter_configs/"
-vim.notify(vim.inspect(linterConfig))
 local lint = require "lint"
 
 lint.linters_by_ft = {
