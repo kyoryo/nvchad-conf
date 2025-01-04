@@ -21,13 +21,9 @@ return {
   {
     "johmsalas/text-case.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
-    config = function()
-      require("textcase").setup {}
-      require("telescope").load_extension "textcase"
-    end,
     keys = {
       "<leader>ga", -- Default invocation prefix
-      { "<leader>ga", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope convert word" },
+      { "<leader>ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope convert word" },
     },
     cmd = {
       -- NOTE: The Subs command name can be customized via the option "substitude_command_name"
@@ -37,19 +33,27 @@ return {
       "TextCaseOpenTelescopeLSPChange",
       "TextCaseStartReplacingCommand",
     },
+    opts = {
+      default_keymappings_enabled = true,
+      prefix = "<leader>ga",
+    },
+    config = function(_, opts)
+      require("textcase").setup(opts)
+      require("telescope").load_extension "textcase"
+    end,
     -- If you want to use the interactive feature of the `Subs` command right away, text-case.nvim
     -- has to be loaded on startup. Otherwise, the interactive feature of the `Subs` will only be
     -- available after the first executing of it or after a keymap of text-case.nvim has been used.
     -- lazy = false,
   },
-  {
-    "echasnovski/mini.ai",
-    version = "*",
-    event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.ai").setup(opts)
-    end,
-  },
+  -- {
+  --   "echasnovski/mini.ai",
+  --   version = "*",
+  --   event = "VeryLazy",
+  --   config = function(_, opts)
+  --     require("mini.ai").setup(opts)
+  --   end,
+  -- },
   -- enhance w,e,b,ge motions. such as move through camel case
   -- {
   --   "chrisgrieser/nvim-spider",
