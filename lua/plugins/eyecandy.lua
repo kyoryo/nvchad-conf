@@ -128,9 +128,28 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     event = { "VeryLazy" },
     opts = {
+      -- TODO: def: green
+      -- NOTE: def: purp
+      -- PERF: def: red
+      -- HACK: def: yellow
+      -- FIX: def: red
+      -- WARNING: def: yellow
+      -- TEST: def: red
+
       -- your configuration comes here
       -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+      -- refer to the configuration section below #abe9b3
+      -- guifg=#1e1d2d guibg=#fae3b0
+      -- colors = {
+      --   info = { "@comment.todo" },
+      --   warning = { "@comment.warning" },
+      --   hint = { "@comment.hint" },
+      -- },
     },
+    config = function(_, opts)
+      -- opts.keywords.TODO.color = "TodoBgTODO"
+      require("todo-comments").setup(opts)
+    end,
+    -- config = true,
   },
 }
