@@ -306,20 +306,21 @@ map("n", "<leader>dd", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostic Sh
 -- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
 
 -- trouble
-map("n", "<leader>tdt", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Trouble)" })
-map("n", "<leader>tdb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
-map("n", "<leader>tst", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+map("n", "<leader>tr", "", { desc = "Trouble" })
+map("n", "<leader>trd", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Trouble)" })
+map("n", "<leader>trb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
+map("n", "<leader>trs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
 map(
   "n",
-  "<leader>tst",
+  "<leader>trp",
   "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
   { desc = "LSP Definitions / references / ... (Trouble)" }
 )
-map("n", "<leader>tlt", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
-map("n", "<leader>tqt", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
+map("n", "<leader>trl", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
+map("n", "<leader>trq", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
 
 -- AI generation (codeium)
-map("i", "<C-g>", function()
+map("i", "<C-y>", function()
   local accepted = vim.fn["codeium#Accept"]()
   -- exit insert mode after accept codeium completion
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
