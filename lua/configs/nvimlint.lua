@@ -1,10 +1,19 @@
+local linterConfig = vim.fn.stdpath "config" .. "/.linter_configs/"
+vim.notify(vim.inspect(linterConfig))
 local lint = require "lint"
 
 lint.linters_by_ft = {
   tf = { "tflint", "tfsec" },
   json = { "jsonlint" },
   go = { "golangcilint" },
-  -- yaml = { "yamllint" },
+  yaml = { "yamllint" },
+}
+
+lint.linters.yamllint.args = {
+  "--config-file",
+  linterConfig .. "yamllint.yaml",
+  "--format=parsable",
+  "-",
 }
 
 local lint_group = vim.api.nvim_create_augroup("lint", { clear = true })
