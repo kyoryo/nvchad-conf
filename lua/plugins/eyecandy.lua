@@ -127,41 +127,33 @@ return {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = { "VeryLazy" },
-    opts = {
-      -- TODO: def: green
-      -- NOTE: def: purp
-      -- PERF: def: red
-      -- HACK: def: yellow
-      -- FIX: def: red
-      -- WARNING: def: yellow
-      -- TEST: def: red
 
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below #abe9b3
-      -- guifg=#1e1d2d guibg=#fae3b0
-      colors = {
-        info = { "TodoBgTodo" },
-        warning = { "@comment.warning" },
-        hint = { "@comment.hint" },
-        error = { "@comment.hint" },
-        test = { "@comment.hint" },
-        fix = { "@comment.hint" },
-      },
-    },
-    config = function(_, opts)
-      local col = require("base46").get_theme_tb "base_30"
-      vim.notify(vim.inspect(col))
-      opts.colors.info = col.cyan
-      opts.colors.warning = col.orange
-      opts.colors.hint = col.white
-      opts.colors.fix = col.red
-      opts.colors.hack = col.orange
-      opts.colors.perf = col.purple
-      opts.colors.test = col.purple
-      -- opts.colors.info = "TodoBgTODO"
+    -- test color
+    -- TODO: def: green
+    -- NOTE: def: purp
+    -- PERF: def: red
+    -- HACK: def: yellow
+    -- FIX: def: red
+    -- WARNING: def: yellow
+    -- TEST: def: red
+
+    config = function()
+      local color = require("base46").get_theme_tb "base_30"
+
+      -- default one is nice but inconsistant on some lang/device, idk why
+      -- delete opts to use default one
+      local opts = {
+        keywords = {
+          FIX = { color = "error" },
+          TODO = { color = color.cyan },
+          HACK = { color = color.yellow },
+          WARN = { color = color.orange },
+          PERF = { color = color.dark_purple },
+          NOTE = { color = color.purple },
+          TEST = { color = color.white },
+        },
+      }
       require("todo-comments").setup(opts)
     end,
-    -- config = true,
   },
 }
