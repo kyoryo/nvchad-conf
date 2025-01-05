@@ -146,8 +146,8 @@ return {
         keywords = {
           FIX = { color = "error" },
           TODO = { color = color.cyan },
-          HACK = { color = color.yellow },
-          WARN = { color = color.orange },
+          HACK = { color = color.orange },
+          WARN = { color = color.yellow },
           PERF = { color = color.dark_purple },
           NOTE = { color = color.purple },
           TEST = { color = color.white },
