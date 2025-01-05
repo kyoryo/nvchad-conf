@@ -33,6 +33,7 @@ return {
               "noice",
               "lazy",
               "toggleterm",
+              "grug-far",
             },
             segments = {
               { text = { builtin.foldfunc }, click = "v:lua.ScFa" },

@@ -140,14 +140,26 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below #abe9b3
       -- guifg=#1e1d2d guibg=#fae3b0
-      -- colors = {
-      --   info = { "@comment.todo" },
-      --   warning = { "@comment.warning" },
-      --   hint = { "@comment.hint" },
-      -- },
+      colors = {
+        info = { "TodoBgTodo" },
+        warning = { "@comment.warning" },
+        hint = { "@comment.hint" },
+        error = { "@comment.hint" },
+        test = { "@comment.hint" },
+        fix = { "@comment.hint" },
+      },
     },
     config = function(_, opts)
-      -- opts.keywords.TODO.color = "TodoBgTODO"
+      local col = require("base46").get_theme_tb "base_30"
+      vim.notify(vim.inspect(col))
+      opts.colors.info = col.cyan
+      opts.colors.warning = col.orange
+      opts.colors.hint = col.white
+      opts.colors.fix = col.red
+      opts.colors.hack = col.orange
+      opts.colors.perf = col.purple
+      opts.colors.test = col.purple
+      -- opts.colors.info = "TodoBgTODO"
       require("todo-comments").setup(opts)
     end,
     -- config = true,
