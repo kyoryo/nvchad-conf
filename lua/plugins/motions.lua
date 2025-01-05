@@ -46,18 +46,14 @@ return {
     -- available after the first executing of it or after a keymap of text-case.nvim has been used.
     -- lazy = false,
   },
-  -- {
-  --   "echasnovski/mini.ai",
-  --   version = "*",
-  --   event = "VeryLazy",
-  --   config = function(_, opts)
-  --     require("mini.ai").setup(opts)
-  --   end,
-  -- },
-  -- enhance w,e,b,ge motions. such as move through camel case
-  -- {
-  --   "chrisgrieser/nvim-spider",
-  -- },
+  {
+    "echasnovski/mini.ai",
+    version = "*",
+    event = "VeryLazy",
+    config = function(_, opts)
+      require("mini.ai").setup(opts)
+    end,
+  },
   {
     "Wansmer/treesj",
     -- keys = { "<space>mt", "<space>j", "<space>s" },
