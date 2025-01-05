@@ -39,6 +39,8 @@ map("n", "<C-p>", "<cmd>cprevious<CR>", { desc = "Quickfix prev" })
 map("n", "]b", ":bn<CR>", { desc = "Buffer next" })
 map("n", "[b", ":bp<CR>", { desc = "Buffer prev" })
 
+map("n", "gb", ":bn<CR>", { desc = "Buffer next" })
+map("n", "gB", ":bp<CR>", { desc = "Buffer prev" })
 -- map("i", "jk", "<ESC>", { desc = "type jk in insert mode to esc" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
