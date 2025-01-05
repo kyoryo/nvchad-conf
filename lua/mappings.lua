@@ -12,6 +12,8 @@ nomap("n", "<leader>x")
 nomap("n", "<leader>rn")
 nomap("n", "<leader>n")
 nomap("n", "<C-s>")
+nomap("n", "<leader>h")
+nomap("n", "<leader>v")
 
 -- comment
 nomap("n", "<leader>/")
