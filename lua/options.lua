@@ -8,6 +8,7 @@ local colors = require("base46").get_theme_tb "base_30"
 vim.opt.relativenumber = true -- set default relative number
 vim.opt.number = true -- set default absolute number
 vim.opt.colorcolumn = "100" -- column marker, comment to disable
+vim.opt.wildoptions = "pum,fuzzy" -- :h wildoptions
 
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = "unnamedplus"
