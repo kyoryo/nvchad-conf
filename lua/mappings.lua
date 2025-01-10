@@ -68,10 +68,9 @@ map(
 
 -- fzf
 -- map("n", "<leader>fzf", ":lua require('fzf-lua').files()<CR>", { desc = "FZF find files" })
-local fzflua = require "fzf-lua"
--- map("n", "<C-p>", fzflua.files, { desc = "FZF find files" })
-map("n", "<leader>pp", fzflua.files, { desc = "FZF find files" })
--- map("n", "<leader>pf", fzflua.live_grep, { desc = "FZF Grep" })
+-- map("n", "<C-p>", require("fzflua").files, { desc = "FZF find files" })
+map("n", "<leader>pp", require("fzflua").files, { desc = "FZF find files" })
+-- map("n", "<leader>pf", require("fzflua").live_grep, { desc = "FZF Grep" })
 map(
   "n",
   "<leader>pw",
@@ -79,26 +78,26 @@ map(
   { desc = "FZF live grep" }
 )
 
-map("n", "<leader>pgd", fzflua.lsp_definitions, { desc = "Jump to Definition" })
+map("n", "<leader>pgd", require("fzflua").lsp_definitions, { desc = "Jump to Definition" })
 map(
   "n",
   "<leader>pcs",
   ":lua require'fzf-lua'.lsp_document_symbols({winopts = {preview={wrap='wrap'}}})<cr>",
   { desc = "Document Symbols" }
 )
-map("n", "<leader>pgr", fzflua.lsp_references, { desc = "LSP References" })
-map("n", "<leader>pd", fzflua.lsp_workspace_diagnostics, { desc = "LSP Workspace Diagnostics" })
-map("n", "<leader>pr", fzflua.resume, { desc = "FZF Resume" })
--- map("n", "<leader>pre", fzflua.registers, { desc = "Registers" })
--- map("n", "<leader>pm", fzflua.marks, { desc = "Marks" })
--- map("n", "<leader>pk", fzflua.keymaps, { desc = "Keymaps" })
--- map("n", "<leader>pb", fzflua.buffers, { desc = "FZF Buffers" })
--- map("v", "<leader>8", fzflua.grep_visual, { desc = "FZF Selection" })
--- map("n", "<leader>7", fzflua.grep_cword, { desc = "FZF Word" })
--- map("n", "<leader>pj", fzflua.helptags, { desc = "Help Tags" })
--- map("n", "<leader>pgc", fzflua.git_bcommits, { desc = "Browse File Commits" })
--- map("n", "<leader>pgs", fzflua.git_status, { desc = "Git Status" })
--- map("n", "<leader>ps", fzflua.spell_suggest, { desc = "Spelling Suggestions" })
+map("n", "<leader>pgr", require("fzflua").lsp_references, { desc = "LSP References" })
+map("n", "<leader>pd", require("fzflua").lsp_workspace_diagnostics, { desc = "LSP Workspace Diagnostics" })
+map("n", "<leader>pr", require("fzflua").resume, { desc = "FZF Resume" })
+-- map("n", "<leader>pre", require("fzflua").registers, { desc = "Registers" })
+-- map("n", "<leader>pm", require("fzflua").marks, { desc = "Marks" })
+-- map("n", "<leader>pk", require("fzflua").keymaps, { desc = "Keymaps" })
+-- map("n", "<leader>pb", require("fzflua").buffers, { desc = "FZF Buffers" })
+-- map("v", "<leader>8", require("fzflua").grep_visual, { desc = "FZF Selection" })
+-- map("n", "<leader>7", require("fzflua").grep_cword, { desc = "FZF Word" })
+-- map("n", "<leader>pj", require("fzflua").helptags, { desc = "Help Tags" })
+-- map("n", "<leader>pgc", require("fzflua").git_bcommits, { desc = "Browse File Commits" })
+-- map("n", "<leader>pgs", require("fzflua").git_status, { desc = "Git Status" })
+-- map("n", "<leader>ps", require("fzflua").spell_suggest, { desc = "Spelling Suggestions" })
 -- map( "n", "<leader>pcd", ":lua require'fzf-lua'.diagnostics_document({fzf_opts = { ['--wrap'] = true }})<cr>", { desc = "Document Diagnostics" })
 -- map( "n", "<leader>pca", ":lua require'fzf-lua'.lsp_code_actions({ winopts = {relative='cursor',row=1.01, col=0, height=0.2, width=0.4} })<cr>", { desc = "Code Actions" })
 
