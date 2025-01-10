@@ -2,7 +2,7 @@ local options = {
   {
     "ibhagwan/fzf-lua",
     -- optional for icon support
-    key = {
+    keys = {
       "<leader>p",
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },

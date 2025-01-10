@@ -89,83 +89,82 @@ map("n", "<leader>pgr", require("fzf-lua").lsp_references, { desc = "LSP Referen
 map("n", "<leader>pd", require("fzf-lua").lsp_workspace_diagnostics, { desc = "LSP Workspace Diagnostics" })
 map("n", "<leader>pr", require("fzf-lua").resume, { desc = "FZF Resume" })
 -- map("n", "<leader>pre", require("fzf-lua").registers, { desc = "Registers" })
--- map("n", "<leader>pm", require("fzf-lua").marks, { desc = "Marks" })
+map("n", "<leader>pm", require("fzf-lua").marks, { desc = "Marks" })
 -- map("n", "<leader>pk", require("fzf-lua").keymaps, { desc = "Keymaps" })
 -- map("n", "<leader>pb", require("fzf-lua").buffers, { desc = "FZF Buffers" })
 -- map("v", "<leader>8", require("fzf-lua").grep_visual, { desc = "FZF Selection" })
 -- map("n", "<leader>7", require("fzf-lua").grep_cword, { desc = "FZF Word" })
 -- map("n", "<leader>pj", require("fzf-lua").helptags, { desc = "Help Tags" })
--- map("n", "<leader>pgc", require("fzf-lua").git_bcommits, { desc = "Browse File Commits" })
--- map("n", "<leader>pgs", require("fzf-lua").git_status, { desc = "Git Status" })
+map("n", "<leader>pgc", require("fzf-lua").git_bcommits, { desc = "Browse File Commits" })
+map("n", "<leader>pgs", require("fzf-lua").git_status, { desc = "Git Status" })
 -- map("n", "<leader>ps", require("fzf-lua").spell_suggest, { desc = "Spelling Suggestions" })
 -- map( "n", "<leader>pcd", ":lua require'fzf-lua'.diagnostics_document({fzf_opts = { ['--wrap'] = true }})<cr>", { desc = "Document Diagnostics" })
 -- map( "n", "<leader>pca", ":lua require'fzf-lua'.lsp_code_actions({ winopts = {relative='cursor',row=1.01, col=0, height=0.2, width=0.4} })<cr>", { desc = "Code Actions" })
 
 -- harpoon section
-local harpoon = require "harpoon"
-harpoon:setup() -- REQUIRED
+-- require("harpoon"):setup() -- REQUIRED
 
 map("n", "<leader>a", function()
-  harpoon:list():add()
+  require("harpoon"):list():add()
 end, { desc = "HARPOON add file" })
 map("n", "<C-e>", function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
+  require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
 end, { desc = "HARPOON open menu" })
 
 map("n", "<leader>1", function()
-  harpoon:list():select(1)
+  require("harpoon"):list():select(1)
 end, { desc = "HARPOON select buf 1" })
 map("n", "<leader>2", function()
-  harpoon:list():select(2)
+  require("harpoon"):list():select(2)
 end, { desc = "HARPOON select buf 2" })
 map("n", "<leader>3", function()
-  harpoon:list():select(3)
+  require("harpoon"):list():select(3)
 end, { desc = "HARPOON select buf 3" })
 map("n", "<leader>4", function()
-  harpoon:list():select(4)
+  require("harpoon"):list():select(4)
 end, { desc = "HARPOON select buf 4" })
 map("n", "<leader>5", function()
-  harpoon:list():select(5)
+  require("harpoon"):list():select(5)
 end, { desc = "HARPOON select buf 5" })
 map("n", "<leader>6", function()
-  harpoon:list():select(6)
+  require("harpoon"):list():select(6)
 end, { desc = "HARPOON select buf 6" })
 map("n", "<leader>7", function()
-  harpoon:list():select(7)
+  require("harpoon"):list():select(7)
 end, { desc = "HARPOON select buf 7" })
 map("n", "<leader>8", function()
-  harpoon:list():select(8)
+  require("harpoon"):list():select(8)
 end, { desc = "HARPOON select buf 8" })
 map("n", "<leader>9", function()
-  harpoon:list():select(9)
+  require("harpoon"):list():select(9)
 end, { desc = "HARPOON select buf 9" })
 map("n", "<leader>0", function()
-  harpoon:list():select(0)
+  require("harpoon"):list():select(0)
 end, { desc = "HARPOON select buf 0" })
 
 -- harpoon shortcut with alt
 map("n", "<M-q>", function()
-  harpoon:list():select(1)
+  require("harpoon"):list():select(1)
 end, { desc = "HARPOON select buf 1" })
 map("n", "<M-w>", function()
-  harpoon:list():select(2)
+  require("harpoon"):list():select(2)
 end, { desc = "HARPOON select buf 2" })
 map("n", "<M-f>", function()
-  harpoon:list():select(3)
+  require("harpoon"):list():select(3)
 end, { desc = "HARPOON select buf 3" })
 map("n", "<M-p>", function()
-  harpoon:list():select(4)
+  require("harpoon"):list():select(4)
 end, { desc = "HARPOON select buf 4" })
 map("n", "<M-b>", function()
-  harpoon:list():select(5)
+  require("harpoon"):list():select(5)
 end, { desc = "HARPOON select buf 5" })
 
 -- Toggle previous & next buffers stored within Harpoon list
 map("n", "<C-S-P>", function()
-  harpoon:list():prev()
+  require("harpoon"):list():prev()
 end, { desc = "HARPOON next buff" })
 map("n", "<C-S-N>", function()
-  harpoon:list():next()
+  require("harpoon"):list():next()
 end, { desc = "HARPOON prev buff" })
 
 -- Spectre
@@ -183,9 +182,6 @@ map("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_wor
 })
 
 -- hop
-local hop = require "hop"
-local directions = require("hop.hint").HintDirection
-local position = require("hop.hint").HintPosition
 -- replacing builtin vim f and t function
 -- map("", "f", function()
 --   hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
@@ -202,16 +198,24 @@ local position = require("hop.hint").HintPosition
 
 -- hop word
 map("n", "<leader><leader>w", function()
-  hop.hint_words { direction = directions.AFTER_CURSOR, current_line_only = false }
+  require("hop").hint_words { direction = require("hop.hint").HintDirection.AFTER_CURSOR, current_line_only = false }
 end, { remap = true, desc = "HOP word, after cursor" })
 map("n", "<leader><leader>b", function()
-  hop.hint_words { direction = directions.BEFORE_CURSOR, current_line_only = false }
+  require("hop").hint_words { direction = require("hop.hint").HintDirection.BEFORE_CURSOR, current_line_only = false }
 end, { remap = true, desc = "HOP word, before cursor" })
 map("n", "<leader><leader>e", function()
-  hop.hint_words { direction = directions.AFTER_CURSOR, current_line_only = false, position = position.END }
+  require("hop").hint_words {
+    direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+    current_line_only = false,
+    position = require("hop.hint").HintPosition.END,
+  }
 end, { remap = true, desc = "HOP end word, after cursor" })
 map("n", "<leader><leader>ge", function()
-  hop.hint_words { direction = directions.BEFORE_CURSOR, current_line_only = false, position = position.END }
+  require("hop").hint_words {
+    direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+    current_line_only = false,
+    position = require("hop.hint").HintPosition.END,
+  }
 end, { remap = true, desc = "HOP end word, before cursor" })
 
 -- hop camel case
@@ -220,10 +224,10 @@ map("n", "<leader><leader>C", ":HopCamelCaseCurrentLineBC<cr>", { silent = true,
 
 -- hop line
 map("n", "<leader><leader>j", function()
-  hop.hint_lines_skip_whitespace { direction = directions.AFTER_CURSOR }
+  require("hop").hint_lines_skip_whitespace { direction = require("hop.hint").HintDirection.AFTER_CURSOR }
 end, { remap = true, desc = "HOP line, after cursor" })
 map("n", "<leader><leader>k", function()
-  hop.hint_lines_skip_whitespace { direction = directions.BEFORE_CURSOR }
+  require("hop").hint_lines_skip_whitespace { direction = require("hop.hint").HintDirection.BEFORE_CURSOR }
 end, { remap = true, desc = "HOP line, before cursor" })
 map("n", "<leader><leader>h", "") -- disable dulu
 -- map("n", "<leader><leader>h", function()

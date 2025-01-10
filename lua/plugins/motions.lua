@@ -2,6 +2,7 @@ return {
   {
     "smoka7/hop.nvim",
     version = "*",
+    keys = { "<leader><leader>" },
     opts = {
       -- keys = "etovxqpdygfblzhckisuran", -- bepo keyboard layout, but it's good
       -- keys = "arstneiohdmgcbpfjluwykv",
@@ -11,7 +12,7 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
+    keys = { "ys", "ds", "cs", "v" },
     config = function()
       require("nvim-surround").setup {
         -- Configuration here, or leave empty to use defaults
@@ -49,7 +50,8 @@ return {
   {
     "echasnovski/mini.ai",
     version = "*",
-    event = "VeryLazy",
+    keys = { "c", "d", "v", "y", "p" },
+    -- event = "VeryLazy",
     config = function(_, opts)
       require("mini.ai").setup(opts)
     end,
