@@ -10,6 +10,11 @@ vim.opt.number = true -- set default absolute number
 vim.opt.colorcolumn = "100" -- column marker, comment to disable
 vim.opt.wildoptions = "pum,fuzzy" -- :h wildoptions
 
+-- set limit scroll top and bot
+vim.o.scrolloff = 8
+-- set limit scroll left and right
+vim.o.sidescrolloff = 8
+
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = "unnamedplus"
 vim.opt.shiftwidth = 4
