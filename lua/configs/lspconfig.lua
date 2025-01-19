@@ -5,7 +5,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "buf_ls" }
+local servers = { "html", "cssls", "buf_ls", "ansiblels" }
 local util = require "lspconfig/util"
 local configs = require "lspconfig/configs"
 
@@ -77,9 +77,13 @@ lspconfig.yamlls.setup {
   on_init = on_init,
   capabilities = capabilities,
   schemas = {
+    -- github actions
     ["https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/github-workflow.json"] = "*github/workflows/*",
+    -- open api
     ["https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/refs/heads/main/configuration-schema.json"] = "*cfg.{yml,yaml}",
+    -- golangci
     ["https://golangci-lint.run/jsonschema/golangci.jsonschema.json"] = ".golangci.{yml,yaml}",
+    -- ansible
   },
 }
 
