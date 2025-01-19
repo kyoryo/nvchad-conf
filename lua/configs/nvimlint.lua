@@ -5,7 +5,7 @@ lint.linters_by_ft = {
   tf = { "tflint", "tfsec" },
   json = { "jsonlint" },
   go = { "golangcilint" },
-  ansible = { "ansible_lint" },
+  -- ansible = { "ansible_lint" }, -- ansiblelint is handled by ansible-ls
   yaml = { "yamllint" },
 }
 
