@@ -1,11 +1,17 @@
 return {
   {
-    -- mini.files
-    "echasnovski/mini.files",
-    version = "*",
-    keys = { "<leader>mf" },
-    config = function(_, opts)
-      require("mini.files").setup(opts)
-    end,
+    "stevearc/oil.nvim",
+    opts = {},
+    event = "VeryLazy",
+    cmd = "Oil",
+    keys = {
+      {
+        "<leader>fl",
+        function()
+          require("oil").open()
+        end,
+        desc = "Open parent directory",
+      },
+    },
   },
 }
