@@ -22,8 +22,29 @@ nomap("v", "<leader>/")
 -- add yours here
 
 local map = vim.keymap.set
-map("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+
+-- ////////////////////////////////////////////
+-- START local leader (conditional command mapping)
+-- ////////////////////////////////////////////
+--
 map("n", "<localleader>ttt", ":echo 'hello' <cr>") -- test
+
+-- go
+map("n", "<localleader>tf", ":GoTestFunc -Fv<cr>", { desc = "Go Test Func" })
+map("n", "<localleader>tF", ":GoTestFile -Fv<cr>", { desc = "Go Test File" })
+
+-- dap go
+map("n", "<localleader>dgt", function()
+  require("dap-go").debug_test()
+end, { desc = "DEBUG debug go test" })
+map("n", "<localleader>dgl", function()
+  require("dap-go").debug_last_test()
+end, { desc = "DEBUG debug last go test" })
+-- ////////////////////////////////////////////
+-- END local leader (conditional command mapping)
+-- ////////////////////////////////////////////
+
+map("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 -- map("n", ";", ":", { desc = "CMD enter command mode" })
 
 map("n", "<C-Left>", "<C-w>h", { desc = "Pane move left" })
@@ -282,14 +303,6 @@ map("n", "<space>dh", function()
   require("dapui").eval(nil, { enter = true })
 end, { desc = "DEBUG eval var under cursor" })
 
--- dap go
-map("n", "<localleader>dgt", function()
-  require("dap-go").debug_test()
-end, { desc = "DEBUG debug go test" })
-map("n", "<localleader>dgl", function()
-  require("dap-go").debug_last_test()
-end, { desc = "DEBUG debug last go test" })
-
 -- code action preview ui
 map("n", "ga", "<cmd>lua require('actions-preview').code_actions()<CR>", { desc = "LSP Code Action preview" })
 map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "LSP hover" })
@@ -389,14 +402,6 @@ map("n", "<leader>obs", ":lua require('obsidian')<CR>:ObsidianSearch<CR>", { des
 map("n", "<leader>obt", ":lua require('obsidian')<CR>:ObsidianToday<CR>", { desc = "Obsidian today note" })
 map("n", "<leader>obx", ":lua require('obsidian')<CR>:ObsidianExtractNote<CR>", { desc = "Obsidian today note" })
 map("n", "<leader>ob#", ":lua require('obsidian')<CR>:ObsidianTags<CR>", { desc = "Obsidian tags" })
-
--- mini files
-map(
-  "n",
-  "<leader>mfo",
-  ":lua require('mini.files')<CR>:lua require('mini.files').open()<CR>",
-  { desc = "MiniFiles Open" }
-)
 
 map("n", "<leader>ta", function()
   require("neotest").run.attach()

@@ -1,6 +1,8 @@
 local debugger = {
   {
     "mfussenegger/nvim-dap",
+    -- keys = { "<leader>db" },
+    -- cmd = { "DapToggleBreakpoint" },
     dependencies = {
       { "nvim-neotest/nvim-nio" },
       { "rcarriga/nvim-dap-ui" },
