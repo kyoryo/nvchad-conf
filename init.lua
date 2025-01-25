@@ -1,6 +1,8 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " " -- Space as leader key
-vim.g.maplocalleader = "\r" -- Enter <CR> as local leader key
+-- known issue: enter is not behaved like enter in quickfix list
+-- vim.g.maplocalleader = "\r" -- Enter <CR> as local leader key
+vim.g.maplocalleader = "\\" -- Enter \ as local leader key
 
 vim.g.nvim_tree_respect_buf_cwd = 0
 -- bootstrap lazy and all plugins
