@@ -51,7 +51,7 @@ M.ui = {
       end,
       modified = function()
         if vim.bo.modified then
-          -- return " ●"
+          -- return " %#St_lsp#●"
           return " [Modified]"
         end
         return ""
