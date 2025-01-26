@@ -32,6 +32,23 @@ M.ui = {
       "cursor",
     },
     modules = {
+      -- comment to use default
+      lsp = function()
+        local clients = vim.lsp.get_clients { bufnr = 0 }
+        if next(clients) == nil then
+          return ""
+        end
+        local client_names = {}
+        for _, client in pairs(clients) do
+          table.insert(client_names, client.name)
+        end
+        local lsps = table.concat(client_names, ", ")
+        if vim.o.columns > 100 and #client_names > 0 then
+          return " %#St_lsp#  LSP ~ " .. lsps .. " "
+        else
+          return " %#St_lsp#  LSP "
+        end
+      end,
       modified = function()
         if vim.bo.modified then
           -- return " ●"
