@@ -395,6 +395,15 @@ end, { desc = "clear log in current buffer" })
 map("n", "glC", function()
   require("timber.actions").clear_log_statements { global = true }
 end, { desc = "clear log in projects" })
+map("n", "glf", function()
+  require("timber.actions").search_log_statements()
+end, { desc = "find log statements" })
+map("n", "gls", function()
+  require("timber.summary").open { focus = true }
+end, { desc = "summary log statements" })
+map("n", "glh", function()
+  require("timber.buffers").open_float()
+end, { desc = "hover log statements" })
 
 -- obsidian
 map("n", "<leader>obn", ":lua require('obsidian')<CR>:ObsidianNew<CR>", { desc = "Obsidian new note" })
