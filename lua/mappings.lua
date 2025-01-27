@@ -327,17 +327,19 @@ map("n", "<leader>dd", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostic Sh
 
 -- trouble
 map("n", "<leader>tr", "", { desc = "Trouble" })
-map("n", "<leader>trd", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Trouble)" })
-map("n", "<leader>trb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
-map("n", "<leader>trs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+map("n", "<leader>trd", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Trouble Diagnostics" })
+map("n", "<leader>trb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Trouble Buffer Diagnostics" })
+map("n", "<leader>trs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Trouble Symbols" })
 map(
   "n",
   "<leader>trp",
   "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-  { desc = "LSP Definitions / references / ... (Trouble)" }
+  { desc = "Trouble LSP Definitions / references / ... " }
 )
-map("n", "<leader>trl", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
-map("n", "<leader>trq", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
+map("n", "<leader>trl", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Location List" })
+map("n", "<leader>trq", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List" })
+map("n", "<leader>tr;", "<cmd>Trouble diagnostics next<cr>", { desc = "Trouble Diagnostics Next" })
+map("n", "<leader>tr,", "<cmd>Trouble diagnostics prev<cr>", { desc = "Trouble Diagnostics Prev" })
 
 -- AI generation (codeium)
 map("i", "<C-y>", function()
