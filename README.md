@@ -46,11 +46,11 @@ fish_add_path -U "/home/<username>/.local/share/nvim/mason/bin/"
 
 also make sure $GOPATH is present, `echo $GOPATH`.
 if not present, run this command
-```
+```bash
 fish_add_path -U "/home/<username>/go/bin"
 ```
 or add this in zshrc/bashrc:
-```
+```bash
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export GOBIN=$GOPATH/bin
