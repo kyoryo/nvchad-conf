@@ -332,14 +332,14 @@ map("n", "<leader>trb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { de
 map("n", "<leader>trs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Trouble Symbols" })
 map(
   "n",
-  "<leader>trp",
+  "<leader>trr",
   "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
   { desc = "Trouble LSP Definitions / references / ... " }
 )
 map("n", "<leader>trl", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Location List" })
 map("n", "<leader>trq", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List" })
-map("n", "<leader>tr;", "<cmd>Trouble diagnostics next<cr>", { desc = "Trouble Diagnostics Next" })
-map("n", "<leader>tr,", "<cmd>Trouble diagnostics prev<cr>", { desc = "Trouble Diagnostics Prev" })
+map("n", "<leader>trn", "<cmd>Trouble next<cr>", { desc = "Trouble Next" })
+map("n", "<leader>trp", "<cmd>Trouble prev<cr>", { desc = "Trouble Prev" })
 
 -- AI generation (codeium)
 map("i", "<C-y>", function()
