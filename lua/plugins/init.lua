@@ -16,34 +16,52 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        -- lua
-        "lua-language-server",
-        "stylua",
-        -- webdev
-        "html-lsp",
-        "css-lsp",
-        "prettier",
-        -- golang
-        "gopls",
-        "gofumpt",
-        "goimports-reviser",
-        "golines",
-        "go-debug-adapter",
-        "delve",
-        -- protobuf
-        "buf-language-server",
-        "buf",
-        -- rust
-        "rust-analyzer",
-        "codelldb",
-        -- terraform
-        "terraform-ls",
-        "tflint",
-        "tfsec",
-      },
-    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    cmd = { "MasonToolsInstall", "MasonToolsUpdate", "MasonToolsClean" },
+    config = function()
+      require("mason-tool-installer").setup {
+        ensure_installed = {
+          -- lua
+          "lua-language-server",
+          "stylua",
+          -- webdev
+          "html-lsp",
+          "css-lsp",
+          "prettier",
+          -- golang
+          "gopls",
+          "gofumpt",
+          "goimports-reviser",
+          "golines",
+          "go-debug-adapter",
+          "delve",
+          -- protobuf
+          "buf-language-server",
+          "buf",
+          -- rust
+          "rust-analyzer",
+          "codelldb",
+          -- terraform
+          "terraform-ls",
+          "tflint",
+          "tfsec",
+          -- yaml
+          "yamlfix",
+          "yamlfmt",
+          "yamllint",
+          "yaml-language-server",
+          -- ansible
+          "ansible-language-server",
+          "ansible-lint",
+          -- sql
+          "sqlfmt",
+          "sqls",
+        },
+        -- run_on_start = true,
+      }
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
