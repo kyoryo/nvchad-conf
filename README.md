@@ -1,17 +1,40 @@
 # starter
 Starter config for NvChad
 
-quick installation
+### quick installation
+
 
 `git clone https://github.com/kyoryo/nvchad-conf.git ~/.config/nvim/`
 
-run these after cloning
+### remove previous installation:
+If you have previous nvim config better remove previous installation first:
+```bash
+# linux/mac
+rm -rf ~/.config/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.local/share/nvim
 
-`:TSInstall <your language>`
-`:MasonInstallAll`
+# Windows PowerShell
+rm -Force ~\AppData\Local\nvim
+rm -Force ~\AppData\Local\nvim-data
 
-if delve is not installed, you need manually install it via
-`:MasonInstall delve` or anything left behind. Ensure delve can be executed via shell by typing `dlv`
+```
+
+### run these after cloning
+To install mason tools, listed in config
+```vim
+:MasonToolsInstall
+```
+
+To install treesitter parsers
+```vim
+:TSInstall <your language>
+```
+
+If some mason pkg is not installed, you need manually install it via `:MasonInstall <name>`.
+For example:
+`:MasonInstall delve` to install delve.
+Also ensure delve can be executed via shell by typing `dlv`
 
 ## PATH
 Make sure that path is set up in your shell
@@ -21,13 +44,12 @@ example if using fish
 fish_add_path -U "/home/<username>/.local/share/nvim/mason/bin/"
 ```
 
-also make sure $GOPATH is present,
-`echo $GOPATH`
+also make sure $GOPATH is present, `echo $GOPATH`.
 if not present, run this command
 ```
 fish_add_path -U "/home/<username>/go/bin"
 ```
-or add this in zshrc
+or add this in zshrc/bashrc:
 ```
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
@@ -59,8 +81,16 @@ list keymap
 toggle gitblame via gitsign
 `:Gitsign toggle_current_line_blame`
 
-to copy text in wsl run this command after using visual block to select desired text in normal mode vim
+### WSL
+#### clipboard
+To copy text in wsl run this command after using visual block to select desired text in normal mode vim:
 `:'<,'>w !clip.exe`
+That options is not using any external installation.
+For best result, install:
+ [wsl-clipboard](https://github.com/memoryInject/wsl-clipboard)
+
+#### open link
+To fix wsl `gx` install [wsl-open](https://github.com/4U6U57/wsl-open)
 
 ### mapping
 
