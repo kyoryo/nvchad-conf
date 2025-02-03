@@ -57,6 +57,14 @@ map("n", "<leader>x", "<cmd>bp | bd #<CR>", { desc = "Buffer close" })
 map("n", "<leader><leader>x", ":%bd|e#|bd#<cr>|'\"<CR>", { desc = "Buffer close except current" }) --https://stackoverflow.com/a/60948057
 map("n", "<leader><leader>X", ":%bd!|e#|bd#<cr>|'\"<CR>", { desc = "Buffer FORCE close except current" })
 
+map("n", "<leader>ux", function()
+  if vim.g.latest_deleted_buffer then
+    vim.cmd("e " .. vim.fn.fnameescape(vim.g.latest_deleted_buffer))
+  else
+    print "No recently deleted buffer recorded."
+  end
+end, { noremap = true, silent = true, desc = "Undo delete buffer" })
+
 map("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Quickfix next" })
 map("n", "<C-p>", "<cmd>cprevious<CR>", { desc = "Quickfix prev" })
 
