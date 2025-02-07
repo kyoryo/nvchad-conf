@@ -126,7 +126,7 @@ Sending some result to quickfix list
 
 Sending all search result to quickfix list
 1. Search something
-2. `Ctrl + q` to send all result to quickfix list
+2. `Alt + q` to send all result to quickfix list (or use `Ctrl + q` [custom])
 
 Sending some result to quickfix list
 1. `tab` to select
