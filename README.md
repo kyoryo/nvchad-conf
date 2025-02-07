@@ -131,3 +131,6 @@ Sending all search result to quickfix list
 Sending some result to quickfix list
 1. `tab` to select
 2. `Enter` to send selection to quickfix list
+
+Open Help Windows
+1. while on fzf floating pane, press `<F1>`

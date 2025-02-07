@@ -4,6 +4,12 @@ local options = {
     file_icon = false,
     color_icon = false,
   },
+  keymap = {
+    builtin = {
+      ["<C-d>"] = "preview-page-down",
+      ["<C-u>"] = "preview-page-up",
+    },
+  },
   files = {
     actions = {
       -- "+accept" isn't required since `accept` is implied with actions
