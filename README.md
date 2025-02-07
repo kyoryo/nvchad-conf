@@ -114,3 +114,20 @@ There are several ctl+key that has same function as other key. Be mindful if you
 | Ctrl + _            | 0x1F           | Unit Separator               | Rarely used directly.                       |
 | Ctrl + Space        | 0x00           | Null (NUL)                   | Represents a null character.                |
 
+
+## Telescope Useful Commands
+Sending all search result to quickfix list
+1. Search something
+2. `Ctrl + q` to send all result to quickfix list
+
+Sending some result to quickfix list
+
+## FZF lua useful Commands
+
+Sending all search result to quickfix list
+1. Search something
+2. `Ctrl + q` to send all result to quickfix list
+
+Sending some result to quickfix list
+1. `tab` to select
+2. `Enter` to send selection to quickfix list
