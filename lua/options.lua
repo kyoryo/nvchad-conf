@@ -217,3 +217,11 @@ if is_wsl() then
     cache_enabled = true,
   }
 end
+
+-- autocmd to store latest deleted buffer path
+vim.api.nvim_create_autocmd("BufDelete", {
+  pattern = "*",
+  callback = function()
+    vim.g.latest_deleted_buffer = vim.fn.expand "<afile>:p"
+  end,
+})
