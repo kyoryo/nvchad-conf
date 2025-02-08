@@ -116,14 +116,24 @@ There are several ctl+key that has same function as other key. Be mindful if you
 
 
 ## Telescope Useful Commands
+Open Help
+1. Press `<C-/>` to open help menu while on telescope window
+
 Sending all search result to quickfix list
 1. Search something
 2. `Ctrl + q` to send all result to quickfix list
 
 Sending some result to quickfix list
+1. Search something
+2. `tab` to select
+3. `Alt + q` to send selection to quickfix list
 
-## FZF lua useful Commands
+Multi filter in grep words
+1. Search using `<leader>fw`
+2. Type something to filter
+3. `Ctrl+space` to make new filter based on previous filter
 
+## FZF lua useful Commands (default binding)
 Sending all search result to quickfix list
 1. Search something
 2. `Alt + q` to send all result to quickfix list (or use `Ctrl + q` [custom])
