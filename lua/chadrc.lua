@@ -61,14 +61,37 @@ M.ui = {
   -- lazyload it when there are 1+ buffers
   tabufline = {
     enabled = true,
-    -- lazyload = true,
-    -- order = {
-    --   "treeOffset",
-    --   "buffers",
-    --   "tabs",
-    --   "btns",
-    -- },
-    -- modules = nil,
+    lazyload = true,
+    bufwidth = 25,
+    order = {
+      "treeOffset",
+      "buffers",
+      "tabs",
+      "btns",
+    },
+    modules = {
+      tabOnly = function()
+        -- WIP
+        local fn = vim.fn
+        -- local api = vim.api
+        local g = vim.g
+
+        local btn = require("nvchad.tabufline.utils").btn
+
+        local result, tabs = "", fn.tabpagenr "$"
+
+        for nr = 1, tabs, 1 do
+          local tab_hl = "TabO" .. (nr == fn.tabpagenr() and "n" or "ff")
+          result = result .. btn(" " .. nr .. " ", tab_hl, "GotoTab", nr)
+        end
+
+        local new_tabtn = btn(" 󰐕 ", "TabNewBtn", "NewTab")
+        local tabstoggleBtn = btn(" TABS ", "TabTitle", "ToggleTabs")
+        local small_btn = btn(" 󰅁 ", "TabTitle", "ToggleTabs")
+
+        return g.TbTabsToggled == 1 and small_btn or new_tabtn .. tabstoggleBtn .. result
+      end,
+    },
   },
   term = {},
 }
