@@ -82,7 +82,7 @@ map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
 
 -- telescope
-map("n", "<leader>fr", ":Telescope resume", { desc = "Telescope resume last window" })
+map("n", "<leader>fr", ":Telescope resume<CR>", { silent = true, desc = "Telescope resume last window" })
 map(
   "n",
   "<leader>fg",
