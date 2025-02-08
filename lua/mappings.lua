@@ -82,18 +82,19 @@ map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
 
 -- telescope
+map("n", "<leader>fr", ":Telescope resume", { desc = "Telescope resume last window" })
 map(
   "n",
   "<leader>fg",
   ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { desc = "telescope live grep args" }
 )
-map("n", "<leader>fc", ":Telescope commands<CR>", { desc = "telescope find command" })
+map("n", "<leader>fc", ":Telescope commands<CR>", { desc = "Telescope find command" })
 map(
   "n",
   "<leader>fu",
   ":Telescope frecency workspace=CWD path_display={'shorten'}<CR>",
-  { desc = "telescope most used files (frecency)" }
+  { desc = "Telescope most used files (frecency)" }
 )
 
 -- fzf
@@ -327,13 +328,18 @@ end, { desc = "URL open code line to clipboard" })
 
 -- show diagnostic
 -- map("n", "<leader>sd", ":lua vim.diagnostic.setqflist()<CR>", { desc = "Diagnostic add to quick fix list" })
-map("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Diagnostic Open" })
+map("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Diagnostic Open (Builtin)" })
 map("n", "<leader><leader>p", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Diagnostic prev" })
 map("n", "<leader><leader>n", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Diagnostic next" })
 -- The following command requires plug-ins "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", and optionally "kyazdani42/nvim-web-devicons" for icon support
-map("n", "<leader>dd", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostic Show" })
+map("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", { desc = "Telescope Diagnostic Show" })
 -- If you don't want to use the telescope plug-in but still want to see all the errors/warnings, comment out the telescope line and uncomment this:
--- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>dd",
+  "<cmd>lua vim.diagnostic.setloclist()<CR>",
+  { noremap = true, silent = true }
+)
 
 -- trouble
 map("n", "<leader>tr", "", { desc = "Trouble" })
