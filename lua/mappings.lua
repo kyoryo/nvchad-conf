@@ -106,7 +106,7 @@ map(
   "n",
   "<leader>pw",
   ":lua require'fzf-lua'.live_grep({ cmd = 'git grep --line-number --column --color=always' })<CR>",
-  { desc = "FZF live grep" }
+  { silent = true, desc = "FZF live grep" }
 )
 
 map("n", "<leader>pgd", require("fzf-lua").lsp_definitions, { desc = "Jump to Definition" })
