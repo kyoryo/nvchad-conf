@@ -66,6 +66,10 @@ in addition of lazy git, we could use nvim as external difftool and mergetool by
 [diff]
     tool = nvimdiff
 ```
+### Useful diffview command
+- to show the log of the current file `DiffviewFileHistory %`
+- to show the log of current repo `DiffviewFileHistory`
+- to show all the currently modified files `DiffviewOpen`
 
 ## AI Tools
 ### codeium
