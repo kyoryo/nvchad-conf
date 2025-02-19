@@ -22,6 +22,8 @@ return {
     cmd = { "MasonToolsInstall", "MasonToolsUpdate", "MasonToolsClean" },
     config = function()
       require("mason-tool-installer").setup {
+        auto_update = false,
+        run_on_start = false,
         ensure_installed = {
           -- lua
           "lua-language-server",
