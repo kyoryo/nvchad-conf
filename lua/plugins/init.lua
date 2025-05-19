@@ -104,6 +104,7 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "nvim-telescope/telescope-frecency.nvim" },
       { "nvim-telescope/telescope-live-grep-args.nvim" },
+      { "nvim-telescope/telescope-ui-select.nvim" },
       {
         "isak102/telescope-git-file-history.nvim",
         dependencies = {
@@ -123,6 +124,7 @@ return {
       local lga_actions = require "telescope-live-grep-args.actions"
 
       opts.extensions = {
+        ui_select = {},
         live_grep_args = {
           auto_quoting = true,
           mappings = {
@@ -142,6 +144,7 @@ return {
       telescope.load_extension "frecency"
       telescope.load_extension "live_grep_args"
       telescope.load_extension "git_file_history"
+      telescope.load_extension "ui-select"
     end,
   },
   {
