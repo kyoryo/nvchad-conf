@@ -71,7 +71,7 @@ M.ui = {
         local function gen_block(icon, txt, sep_l_hlgroup, iconHl_group, txt_hl_group)
           return sep_l_hlgroup .. sep_l .. iconHl_group .. icon .. " " .. txt_hl_group .. " " .. txt .. sep_r
         end
-        return gen_block("", "%l:%v:%p%% ", "%#St_lsp_sep#", "%#St_lsp_bg#", "%#St_lsp_txt#")
+        return gen_block("", "%l/%v[%p%%]% ", "%#St_lsp_sep#", "%#St_lsp_bg#", "%#St_lsp_txt#")
       end,
       simple_cursor = function()
         return " %#StText# Ln %l, Col %v  %p%% "
