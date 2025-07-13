@@ -462,3 +462,13 @@ map("n", "<leader>tt", function()
 end, { desc = "[t]est [t]erminate" })
 -- map("n", "<leader>td", function() require("neotest").run.run({ suite = false, strategy = "dap" }) end, {desc = "Debug nearest test" })
 -- map("n", "<leader>tD", function() require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" }) end, {desc = "Debug current file" })
+--
+--
+
+-- monorepo
+vim.keymap.set("n", "<leader>mo", function()
+  require("telescope").extensions.monorepo.monorepo()
+end, { desc = "Monorepo List" })
+vim.keymap.set("n", "<leader>mt", function()
+  require("monorepo").toggle_project()
+end, { desc = "Monorepo Toggle" })
