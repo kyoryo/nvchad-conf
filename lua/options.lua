@@ -33,11 +33,18 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 vim.o.autoread = true
+
 -- auto reload file
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
-  command = "if mode() != 'c' | checktime | endif",
   pattern = "*",
+  callback = function()
+    -- Skip if in command-line mode or not a normal buffer
+    if vim.fn.mode() ~= "c" and vim.bo.buftype == "" then
+      vim.cmd "checktime"
+    end
+  end,
 })
+
 -- notify on file changes
 vim.api.nvim_create_autocmd("FileChangedShellPost", {
   pattern = "*",
