@@ -4,6 +4,14 @@ return {
     event = "InsertEnter",
   },
   {
+    "zbirenbaum/copilot.lua", -- for providers='copilot'
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {}
+    end,
+  },
+  {
     "yetone/avante.nvim",
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     -- ⚠️ must add this setting! ! !
@@ -46,7 +54,6 @@ return {
       -- "stevearc/dressing.nvim", -- for input provider dressing
       -- "folke/snacks.nvim", -- for input provider snacks
       -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
