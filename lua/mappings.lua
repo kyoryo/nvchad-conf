@@ -466,9 +466,17 @@ end, { desc = "[t]est [t]erminate" })
 --
 
 -- monorepo
-vim.keymap.set("n", "<leader>mo", function()
+map("n", "<leader>mo", function()
   require("telescope").extensions.monorepo.monorepo()
 end, { desc = "Monorepo List" })
-vim.keymap.set("n", "<leader>mt", function()
+map("n", "<leader>mt", function()
   require("monorepo").toggle_project()
 end, { desc = "Monorepo Toggle" })
+
+-- notify
+map("n", "<leader>nd", function()
+  require("notify").dismiss { silent = true, pending = true }
+end, { desc = "Dismiss Notifications" })
+-- vim.api.nvim_create_user_command("NotifyMe", function()
+--   require "notify"("This is a notification!", "info", { title = "Hello" })
+-- end, {})
