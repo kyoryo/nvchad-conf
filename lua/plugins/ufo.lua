@@ -13,7 +13,19 @@ return {
             -- foldfunc = "builtin",
             -- setopt = true,
             relculright = true,
-            bt_ignore = { "nofile", "prompt", "terminal", "packer" },
+            bt_ignore = {
+              "nofile",
+              "prompt",
+              "terminal",
+              "packer",
+              "dap-repl",
+              "dapui_console",
+              "dapui_stacks",
+              "dapui_breakpoints",
+              "dapui_scopes",
+              "dbui",
+              "grug-far",
+            },
             ft_ignore = {
               "NvimTree",
               "dashboard",
@@ -33,6 +45,7 @@ return {
               "noice",
               "lazy",
               "toggleterm",
+              "dbui",
               "grug-far",
             },
             segments = {
