@@ -6,11 +6,14 @@ local M = {}
 
 M.base46 = {
   theme = "catppuccin",
-
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  theme_toggle = {
+    "catppuccin",
+    "nightfox",
+  },
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+  },
 }
 M.ui = {
   statusline = {
@@ -85,12 +88,15 @@ M.ui = {
     bufwidth = 25,
     order = {
       "treeOffset",
-      "buffers",
-      "tabs",
-      "btns",
+      -- "buffers",
+      -- "tabs",
+      -- "btns",
+      "tabOnly",
+      "customBtn",
     },
     modules = {
       tabOnly = function()
+        local txt = require("nvchad.tabufline.utils").txt
         -- WIP
         local fn = vim.fn
         -- local api = vim.api
@@ -100,16 +106,34 @@ M.ui = {
 
         local result, tabs = "", fn.tabpagenr "$"
 
-        for nr = 1, tabs, 1 do
-          local tab_hl = "TabO" .. (nr == fn.tabpagenr() and "n" or "ff")
-          result = result .. btn(" " .. nr .. " ", tab_hl, "GotoTab", nr)
+        if tabs > 1 then
+          for nr = 1, tabs, 1 do
+            local tab_hl = "TabO" .. (nr == fn.tabpagenr() and "n" or "ff")
+            result = result .. btn(" " .. nr .. " ", tab_hl, "GotoTab", nr)
+          end
         end
 
         local new_tabtn = btn(" 󰐕 ", "TabNewBtn", "NewTab")
         local tabstoggleBtn = btn(" TABS ", "TabTitle", "ToggleTabs")
         local small_btn = btn(" 󰅁 ", "TabTitle", "ToggleTabs")
 
-        return g.TbTabsToggled == 1 and small_btn or new_tabtn .. tabstoggleBtn .. result
+        if tabs > 1 then
+          return g.TbTabsToggled == 1 and small_btn or txt("%=", "Fill") .. new_tabtn .. tabstoggleBtn .. result
+        end
+        return txt("%=", "Fill")
+      end,
+      customBtn = function()
+        local g = vim.g
+        local fn = vim.fn
+        local btn = require("nvchad.tabufline.utils").btn
+        local toggle_theme = btn(g.toggle_theme_icon, "ThemeToggleBtn", "Toggle_theme")
+        local closeAllBufs = btn(" 󰅖 ", "CloseAllBufsBtn", "CloseAllBufs")
+        local _, tabs = "", fn.tabpagenr "$"
+        if tabs > 1 then
+          return toggle_theme .. closeAllBufs
+        end
+        return toggle_theme
+        -- return toggle_theme .. closeAllBufs
       end,
     },
   },
