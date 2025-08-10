@@ -90,6 +90,9 @@ return {
       trailing_stiffness = 0.7,
       distance_stop_animating = 0.7,
       hide_target_hack = false,
+      damping = 0.67,
+      matrix_pixel_treshold = 0.5,
+
       -- Smear cursor color. Defaults to Cursor GUI color if not set.
       -- Set to "none" to match the text color at the target cursor position.
       -- cursor_color = "#d3cdc3",
