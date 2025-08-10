@@ -4,7 +4,7 @@ local lint = require "lint"
 lint.linters_by_ft = {
   tf = { "tflint", "tfsec" },
   json = { "jsonlint" },
-  go = { "golangcilint" },
+  -- go = { "golangcilint" },
   -- ansible = { "ansible_lint" }, -- ansiblelint is handled by ansible-ls
   yaml = { "yamllint" },
 }

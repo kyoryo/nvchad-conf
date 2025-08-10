@@ -87,6 +87,29 @@ lspconfig.yamlls.setup {
   },
 }
 
+-- golangci linter
+if not configs.golangcilsp then
+  configs.golangcilsp = {
+    default_config = {
+      cmd = { "golangci-lint-langserver" },
+      root_dir = lspconfig.util.root_pattern(".git", "go.mod"),
+      init_options = {
+        command = {
+          "golangci-lint",
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--show-stats=false",
+          "--issues-exit-code=1",
+        },
+      },
+    },
+  }
+end
+lspconfig.golangci_lint_ls.setup {
+  filetypes = { "go", "gomod" },
+}
+
 -- sqls language server
 -- uncomment to enable sqls completion, require a working connections
 -- could be used as complementary to vim-dadbod
