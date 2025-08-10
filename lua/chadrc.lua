@@ -88,13 +88,29 @@ M.ui = {
     bufwidth = 25,
     order = {
       "treeOffset",
-      -- "buffers",
-      -- "tabs",
-      -- "btns",
-      "tabOnly",
-      "customBtn",
+      "buffers",
+      "tabs",
+      "btns",
+      --
+      -- "customTreeOffset",
+      -- "tabOnly",
+      -- "customBtn",
     },
     modules = {
+      customTreeOffset = function()
+        local api = vim.api
+        local strep = string.rep
+        local function getNvimTreeWidth()
+          for _, win in pairs(api.nvim_tabpage_list_wins(0)) do
+            if vim.bo[api.nvim_win_get_buf(win)].ft == "NvimTree" then
+              return api.nvim_win_get_width(win)
+            end
+          end
+          return 0
+        end
+        local w = getNvimTreeWidth()
+        return w == 0 and "" or "%#NvimTreeNormal#" .. strep(" ", w) .. "%#NvimTreeWinSeparator#" .. "│"
+      end,
       tabOnly = function()
         local txt = require("nvchad.tabufline.utils").txt
         -- WIP
