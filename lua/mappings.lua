@@ -486,3 +486,13 @@ end, { desc = "Dismiss Notifications" })
 -- vim.api.nvim_create_user_command("NotifyMe", function()
 --   require "notify"("This is a notification!", "info", { title = "Hello" })
 -- end, {})
+
+-- workspace diagnostics
+vim.api.nvim_set_keymap("n", "<space>da", "populate workspace diagnostics", {
+  noremap = true,
+  callback = function()
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
+    end
+  end,
+})
