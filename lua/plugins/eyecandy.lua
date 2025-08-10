@@ -105,6 +105,7 @@ return {
       -- Smears will blend better on all backgrounds.
       legacy_computing_symbols_support = true,
       transparent_bg_fallback_color = "#303030",
+      smear_insert_mode = false,
     },
   },
   {
