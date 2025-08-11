@@ -47,6 +47,9 @@ return {
               "toggleterm",
               "dbui",
               "grug-far",
+              "json.kulala_ui",
+              "kulala_ui",
+              "ui",
             },
             segments = {
               { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
