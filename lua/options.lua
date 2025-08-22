@@ -125,6 +125,26 @@ vim.fn.sign_define(
   { text = "", texthl = "DapStopped", linehl = "DapStoppedLine", numhl = "DapStopped" }
 )
 
+-- local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+-- local signConf = {
+--   text = {},
+--   texthl = {},
+--   numhl = {},
+-- }
+--
+-- for type, icon in pairs(signs) do
+--   local severityName = string.upper(type)
+--   local severity = vim.diagnostic.severity[severityName]
+--   local hl = "DiagnosticSign" .. type
+--   signConf.text[severity] = icon
+--   signConf.texthl[severity] = hl
+--   signConf.numhl[severity] = hl
+-- end
+--
+-- vim.diagnostic.config {
+--   signs = signConf,
+-- }
+
 -- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
