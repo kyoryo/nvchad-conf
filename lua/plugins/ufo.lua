@@ -25,6 +25,7 @@ return {
               "dapui_scopes",
               "dbui",
               "grug-far",
+              "health:",
             },
             ft_ignore = {
               "NvimTree",
@@ -50,6 +51,7 @@ return {
               "json.kulala_ui",
               "kulala_ui",
               "ui",
+              "health:",
             },
             segments = {
               { text = { builtin.foldfunc }, click = "v:lua.ScFa" },

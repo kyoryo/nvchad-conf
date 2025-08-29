@@ -13,6 +13,18 @@ function M.setup_adapter()
         program = "${file}",
         buildFlags = require("dap-go").get_build_flags,
       },
+      {
+        type = "go",
+        name = "Function (under cursor)",
+        request = "launch",
+        mode = "test",
+        program = "${fileDirname}",
+        args = function()
+          -- get current function name under cursor
+          local test = vim.fn.expand "<cword>"
+          return { "-test.run", test }
+        end,
+      },
     },
     -- delve configuration
     delve = {
