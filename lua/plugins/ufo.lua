@@ -18,25 +18,11 @@ return {
               "prompt",
               "terminal",
               "packer",
-              "dap-repl",
-              "dapui_console",
-              "dapui_stacks",
-              "dapui_breakpoints",
-              "dapui_scopes",
-              "dbui",
-              "grug-far",
-              "health:",
             },
             ft_ignore = {
               "NvimTree",
               "dashboard",
               "nvcheatsheet",
-              "dapui_watches",
-              "dap-repl",
-              "dapui_console",
-              "dapui_stacks",
-              "dapui_breakpoints",
-              "dapui_scopes",
               "help",
               "vim",
               "alpha",
@@ -46,12 +32,7 @@ return {
               "noice",
               "lazy",
               "toggleterm",
-              "dbui",
-              "grug-far",
-              "json.kulala_ui",
-              "kulala_ui",
               "ui",
-              "health:",
             },
             segments = {
               { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
@@ -76,6 +57,29 @@ return {
           -- you can add other fields for setting up lsp server in this table
         }
       end
+
+      -- disable ufo on these filetypes
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "grug-far",
+          "json.kulala_ui",
+          "kulala_ui",
+          "checkhealth",
+          "dap-repl",
+          "dapui_watches",
+          "dapui_console",
+          "dapui_stacks",
+          "dapui_breakpoints",
+          "dapui_scopes",
+          "dap-repl",
+          "dbui",
+        },
+        callback = function()
+          require("ufo").detach()
+          vim.opt_local.foldenable = false
+          vim.opt_local.foldcolumn = "0"
+        end,
+      })
       require("ufo").setup()
     end,
   },
