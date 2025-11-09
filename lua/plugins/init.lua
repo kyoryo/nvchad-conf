@@ -8,9 +8,9 @@ return {
   },
   -- These are some examples, uncomment them if you want to see them work!
   {
-    "neovim/nvim-lspconfig",
+    "neovim/nvim-lspconfig", -- this plugin is only acting as default configuration
     config = function()
-      require("nvchad.configs.lspconfig").defaults()
+      require("nvchad.configs.lspconfig").defaults() -- default config is lua_ls
       require "configs.lspconfig"
     end,
   },
