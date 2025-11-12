@@ -58,6 +58,17 @@ function M.setup_adapter()
           end
         end,
       },
+      {
+        type = "go",
+        name = "Current package",
+        request = "launch",
+        mode = "test",
+        program = "${fileDirname}",
+        args = function()
+          vim.notify("Running all tests in current package", vim.log.levels.INFO)
+          return { "-test.run", "^Test" }
+        end,
+      },
     },
     -- delve configuration
     delve = {
