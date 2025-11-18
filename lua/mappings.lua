@@ -525,11 +525,8 @@ end, { desc = "Dismiss Notifications" })
 -- end, {})
 
 -- workspace diagnostics
-vim.api.nvim_set_keymap("n", "<space>da", "populate workspace diagnostics", {
-  noremap = true,
-  callback = function()
-    for _, client in ipairs(vim.lsp.get_clients()) do
-      require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
-    end
-  end,
-})
+map("n", "<space>da", function()
+  for _, client in ipairs(vim.lsp.get_clients()) do
+    require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
+  end
+end, { desc = "Diagnostic populate workspace" })
