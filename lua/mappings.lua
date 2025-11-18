@@ -50,6 +50,22 @@ vim.api.nvim_create_autocmd("FileType", {
 -- END local leader (conditional command mapping)
 -- ////////////////////////////////////////////
 
+-- Horizontal and vertical highlight
+map("n", "<leader>tcc", function()
+  vim.wo.cursorcolumn = not vim.wo.cursorcolumn
+end, { desc = "Toggle cursor column" })
+
+map("n", "<leader>tcl", function()
+  vim.wo.cursorline = not vim.wo.cursorline
+end, { desc = "Toggle cursor line" })
+
+map("n", "<leader>tcb", function()
+  local new = not vim.wo.cursorcolumn
+  vim.wo.cursorline = new
+  vim.wo.cursorcolumn = new
+end, { desc = "Toggle line and column" })
+-- END Horizontal and vertical highlight
+
 map("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 -- map("n", ";", ":", { desc = "CMD enter command mode" })
 
@@ -298,11 +314,26 @@ map("n", "<F5>", function()
   require("dap").restart()
 end, { desc = "DEBUG restart" })
 map("n", "<F6>", function()
-  require("dap").toggle_breakpoint()
+  -- require("dap").toggle_breakpoint()
+  require("persistent-breakpoints.api").toggle_breakpoint()
 end, { desc = "DEBUG add breakpoint at line" })
 map("n", "<F7>", function()
-  require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
+  -- require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
+  require("persistent-breakpoints.api").set_conditional_breakpoint()
 end, { desc = "DEBUG add conditional breakpoint" })
+map("n", "<F9>", function()
+  -- require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
+  require("persistent-breakpoints.api").clear_all_breakpoints()
+end, { desc = "DEBUG add all breakpoint" })
+map("n", "<F10>", function()
+  -- require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
+  require("persistent-breakpoints.api").set_log_point()
+end, { desc = "DEBUG add log point" })
+
+-- keymap("n", "<YourKey1>", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", opts)
+-- keymap("n", "<YourKey2>", "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", opts)
+-- keymap("n", "<YourKey3>", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", opts)
+-- keymap("n", "<YourKey4>", "<cmd>lua require('persistent-breakpoints.api').set_log_point()<cr>", opts)
 
 map("n", "<leader>dut", function()
   require("dapui").toggle()
