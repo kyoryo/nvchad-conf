@@ -1,4 +1,18 @@
+local utils = require "configs.debugger.utils"
 local M = {}
+
+function M.get_nearest_test()
+  local line = vim.fn.line "."
+  for l = line, 1, -1 do
+    local text = vim.fn.getline(l)
+    -- Look for a Go test function
+    local name = text:match "^func%s+(Test%w+)"
+    if name then
+      return name
+    end
+  end
+  return nil
+end
 
 function M.setup_adapter()
   local dapgo = require "dap-go"
@@ -12,6 +26,48 @@ function M.setup_adapter()
         request = "launch",
         program = "${file}",
         buildFlags = require("dap-go").get_build_flags,
+      },
+      {
+        type = "go",
+        name = "Function (under cursor)",
+        request = "launch",
+        mode = "test",
+        program = "${fileDirname}",
+        args = function()
+          -- get current function name under cursor
+          local test = vim.fn.expand "<cword>"
+          vim.notify("Running test: " .. test, vim.log.levels.INFO)
+          return { "-test.run", test }
+        end,
+      },
+      {
+        type = "go",
+        name = "Function (nearest)",
+        request = "launch",
+        mode = "test",
+        program = "${fileDirname}",
+        args = function()
+          local test = utils.get_nearest_test()
+          if test then
+            vim.notify("Running test: " .. test, vim.log.levels.INFO)
+            -- return { "-test.run", "^" .. test "$" }
+            return { "-test.run", test }
+          else
+            vim.notify("No test found, running current package", vim.log.levels.WARN)
+            return {}
+          end
+        end,
+      },
+      {
+        type = "go",
+        name = "Current package",
+        request = "launch",
+        mode = "test",
+        program = "${fileDirname}",
+        args = function()
+          vim.notify("Running all tests in current package", vim.log.levels.INFO)
+          return { "-test.run", "^Test" }
+        end,
       },
     },
     -- delve configuration

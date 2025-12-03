@@ -19,6 +19,15 @@ local debugger = {
     dependencies = { "mfussenegger/nvim-dap" },
   },
   {
+    "Weissle/persistent-breakpoints.nvim",
+    opts = {
+      load_breakpoints_event = { "BufReadPost" },
+    },
+    config = function(_, opts)
+      require("persistent-breakpoints").setup(opts)
+    end,
+  },
+  {
     "Goose97/timber.nvim",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     keys = { "gl" },

@@ -8,9 +8,9 @@ return {
   },
   -- These are some examples, uncomment them if you want to see them work!
   {
-    "neovim/nvim-lspconfig",
+    "neovim/nvim-lspconfig", -- this plugin is only acting as default configuration
     config = function()
-      require("nvchad.configs.lspconfig").defaults()
+      require("nvchad.configs.lspconfig").defaults() -- default config is lua_ls
       require "configs.lspconfig"
     end,
   },
@@ -105,13 +105,13 @@ return {
       { "nvim-telescope/telescope-frecency.nvim" },
       { "nvim-telescope/telescope-live-grep-args.nvim" },
       { "nvim-telescope/telescope-ui-select.nvim" },
-      {
-        "isak102/telescope-git-file-history.nvim",
-        dependencies = {
-          "nvim-lua/plenary.nvim",
-          "tpope/vim-fugitive",
-        },
-      },
+      -- {
+      --   "isak102/telescope-git-file-history.nvim",
+      --   dependencies = {
+      --     "nvim-lua/plenary.nvim",
+      --     "tpope/vim-fugitive",
+      --   },
+      -- },
     },
     opts = function(_, opts)
       table.insert(opts.extensions_list, "fzf")
@@ -143,7 +143,7 @@ return {
       telescope.load_extension "fzf"
       telescope.load_extension "frecency"
       telescope.load_extension "live_grep_args"
-      telescope.load_extension "git_file_history"
+      -- telescope.load_extension "git_file_history"
       telescope.load_extension "ui-select"
     end,
   },
