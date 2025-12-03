@@ -84,6 +84,7 @@ return {
   {
     -- for terminal that do not have graphical capabilities (like kitty)
     "sphamba/smear-cursor.nvim",
+    enabled = not vim.g.neovide,
     event = { "BufEnter" },
     opts = {
       stiffness = 0.98,
