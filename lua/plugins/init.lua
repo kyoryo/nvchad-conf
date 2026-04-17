@@ -124,6 +124,13 @@ return {
       local lga_actions = require "telescope-live-grep-args.actions"
       local mappings = require "telescope_mappings"
 
+      opts.defaults = opts.defaults or {}
+      opts.defaults.mappings = opts.defaults.mappings or {}
+      opts.defaults.mappings.i = opts.defaults.mappings.i or {}
+
+      opts.defaults.mappings.i["<C-k>"] = actions.cycle_history_prev
+      opts.defaults.mappings.i["<C-j>"] = actions.cycle_history_next
+
       opts.extensions = {
         ui_select = {},
         live_grep_args = {
