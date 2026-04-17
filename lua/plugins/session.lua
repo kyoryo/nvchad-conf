@@ -8,6 +8,7 @@ return {
         local cmd = "git rev-parse --is-inside-work-tree"
         return vim.fn.system(cmd) == "true\n"
       end,
+      auto_save = true,
       suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/", "~/git" },
       -- log_level = "error",
       pre_save_cmds = {
