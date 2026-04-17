@@ -23,8 +23,10 @@ return {
     "johmsalas/text-case.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     keys = {
-      "<leader>ga", -- Default invocation prefix
-      { "<leader>ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope convert word" },
+      -- "<leader>ga", -- Default invocation prefix
+      -- { "<leader>ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope convert word" },
+      "gwc", -- Default invocation prefix
+      { "gwc.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope convert word" },
     },
     cmd = {
       -- NOTE: The Subs command name can be customized via the option "substitude_command_name"
