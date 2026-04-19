@@ -185,6 +185,7 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     after = "nvim-treesitter",
     requires = "nvim-treesitter/nvim-treesitter",
+    branch = "main",
   },
   {
     "hrsh7th/nvim-cmp",
