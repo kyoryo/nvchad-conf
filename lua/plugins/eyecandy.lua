@@ -9,6 +9,15 @@ return {
         build = "make",
       },
       event = "BufEnter *.*",
+      ft = function()
+        local disabled = {
+          "http",
+          "rest",
+        }
+        return function(_, ft)
+          return not vim.tbl_contains(disabled, ft)
+        end
+      end,
       config = function()
         require "configs.dropbar"
       end,
@@ -81,37 +90,37 @@ return {
       -- refer to the configuration section below
     },
   },
-  {
-    -- for terminal that do not have graphical capabilities (like kitty)
-    "sphamba/smear-cursor.nvim",
-    enabled = not vim.g.neovide,
-    event = { "BufEnter" },
-    opts = {
-      stiffness = 0.98,
-      trailing_stiffness = 0.7,
-      distance_stop_animating = 0.7,
-      hide_target_hack = false,
-      damping = 0.67,
-      matrix_pixel_treshold = 0.5,
-
-      -- Smear cursor color. Defaults to Cursor GUI color if not set.
-      -- Set to "none" to match the text color at the target cursor position.
-      -- cursor_color = "#d3cdc3",
-      -- Background color. Defaults to Normal GUI background color if not set.
-      -- normal_bg = "#282828",
-      -- Smear cursor when switching buffers or windows.
-      smear_between_buffers = true,
-      -- Smear cursor when moving within line or to neighbor lines.
-      smear_between_neighbor_lines = true,
-      -- Draw the smear in buffer space instead of screen space when scrolling
-      scroll_buffer_space = true,
-      -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
-      -- Smears will blend better on all backgrounds.
-      legacy_computing_symbols_support = true,
-      transparent_bg_fallback_color = "#303030",
-      smear_insert_mode = false,
-    },
-  },
+  -- {
+  --   -- for terminal that do not have graphical capabilities (like kitty)
+  --   "sphamba/smear-cursor.nvim",
+  --   enabled = not vim.g.neovide,
+  --   event = { "BufEnter" },
+  --   opts = {
+  --     stiffness = 0.98,
+  --     trailing_stiffness = 0.7,
+  --     distance_stop_animating = 0.7,
+  --     hide_target_hack = false,
+  --     damping = 0.67,
+  --     matrix_pixel_treshold = 0.5,
+  --
+  --     -- Smear cursor color. Defaults to Cursor GUI color if not set.
+  --     -- Set to "none" to match the text color at the target cursor position.
+  --     -- cursor_color = "#d3cdc3",
+  --     -- Background color. Defaults to Normal GUI background color if not set.
+  --     -- normal_bg = "#282828",
+  --     -- Smear cursor when switching buffers or windows.
+  --     smear_between_buffers = true,
+  --     -- Smear cursor when moving within line or to neighbor lines.
+  --     smear_between_neighbor_lines = true,
+  --     -- Draw the smear in buffer space instead of screen space when scrolling
+  --     scroll_buffer_space = true,
+  --     -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
+  --     -- Smears will blend better on all backgrounds.
+  --     legacy_computing_symbols_support = true,
+  --     transparent_bg_fallback_color = "#303030",
+  --     smear_insert_mode = false,
+  --   },
+  -- },
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     -- event = { "BufEnter" },

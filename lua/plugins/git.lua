@@ -23,7 +23,6 @@ return {
     config = function(_, opts)
       require("github-pr-reviewer").setup(opts)
 
-      vim.keymap.del("n", "<C-e>")
       vim.keymap.set("n", "<C-e>", function()
         require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
       end, { desc = "HARPOON open menu" })
