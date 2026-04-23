@@ -26,16 +26,6 @@ local options = {
       if stat and stat.size > 1024 * 1024 then
         return false
       end
-
-      -- always enable for markdown
-      return ft == "markdown"
-        -- enable if treesitter is enabled for the buffer
-        or pcall(vim.treesitter.get_parser, buf)
-        -- enable if lsp is supporting documentSymbol
-        or not vim.tbl_isempty(vim.lsp.get_clients {
-          bufnr = buf,
-          method = "textDocument/documentSymbol",
-        })
     end,
   },
 }
