@@ -9,15 +9,6 @@ return {
         build = "make",
       },
       event = "BufEnter *.*",
-      ft = function()
-        local disabled = {
-          "http",
-          "rest",
-        }
-        return function(_, ft)
-          return not vim.tbl_contains(disabled, ft)
-        end
-      end,
       config = function()
         require "configs.dropbar"
       end,
