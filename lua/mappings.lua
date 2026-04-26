@@ -546,8 +546,3 @@ map("n", "<space>da", function()
     require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
   end
 end, { desc = "Diagnostic populate workspace" })
-
----
-map("n", "dep", function()
-  require("decipher").decode_motion_prompt { preview = false }
-end, { desc = "Decipher motion prompt" })
