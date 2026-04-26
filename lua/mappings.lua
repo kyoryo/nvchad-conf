@@ -6,9 +6,12 @@ local nomap = vim.keymap.del
 
 -- disabled this so tab mapping doesn't interfere with ctrl-i
 -- moreover read here https://nvchad.com/docs/faq/#mapping_ctrl_+_o_/_i_keys
-nomap("n", "<tab>")
+--
+if require("nvconfig").ui.tabufline.enabled then
+  nomap("n", "<tab>")
+  nomap("n", "<leader>x")
+end
 nomap("n", "<C-n>")
-nomap("n", "<leader>x")
 nomap("n", "<leader>rn")
 nomap("n", "<leader>n")
 nomap("n", "<C-s>")
@@ -436,11 +439,13 @@ map({ "n", "x" }, "<leader>sS", function()
 end, { desc = "Treesj Split Lines recursive" })
 
 -- lsp lines
+local use_lines = false
 map("n", "<leader>lt", function()
   require "lsp_lines"
+  use_lines = not use_lines
   vim.diagnostic.config {
-    virtual_text = not vim.diagnostic.config().virtual_text,
-    virtual_lines = vim.diagnostic.config().virtual_text,
+    virtual_text = not use_lines,
+    virtual_lines = use_lines,
   }
 end, { desc = "Toggle LSP error lines" })
 
