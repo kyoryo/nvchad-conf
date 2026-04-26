@@ -17,7 +17,7 @@ return {
   },
   {
     "bassamsdata/namu.nvim",
-    lazy = false,
+    keys = { "<leader>ns" },
     config = function()
       require("namu").setup {
         -- Enable the modules you want
@@ -65,6 +65,10 @@ return {
       -- === Suggested Keymaps: ===
       local namu = require "namu.namu_symbols"
       -- local colorscheme = require "namu.colorscheme"
+      vim.keymap.set("n", "<leader>ns", "", {
+        desc = "namu show",
+        silent = true,
+      })
       vim.keymap.set("n", "<leader>nss", namu.show, {
         desc = "Jump to LSP symbol",
         silent = true,

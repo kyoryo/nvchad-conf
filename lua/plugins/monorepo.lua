@@ -1,7 +1,7 @@
 return {
   {
     "imNel/monorepo.nvim",
-    lazy = false,
+    keys = { "<leader>m" },
     config = function()
       require("monorepo").setup {
         -- Your config here!
