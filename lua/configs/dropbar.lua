@@ -26,6 +26,7 @@ local options = {
       if stat and stat.size > 1024 * 1024 then
         return false
       end
+      return true
     end,
   },
 }
