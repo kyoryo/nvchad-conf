@@ -78,4 +78,9 @@ return {
     },
     opts = {},
   },
+  {
+    -- improve % limitation
+    "andymass/vim-matchup",
+    lazy = false,
+  },
 }
