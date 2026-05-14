@@ -15,7 +15,6 @@
   "crates.nvim": { "branch": "main", "commit": "694357861ec9ebf12475ddcdd04ea45a0923c32d" },
   "demicolon.nvim": { "branch": "main", "commit": "a9ca137474b3a02e1d6ac48bfdb1985172e2ec9a" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
-  "dropbar.nvim": { "branch": "master", "commit": "f0a42bd92aa647e44221397723453403f5e20f16" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
   "fzf-lua": { "branch": "main", "commit": "97376e364f51f1b5ae3efaa3eb2e929430ca8419" },
   "git-link.nvim": { "branch": "main", "commit": "0a56c23821fbace9a8ceeec438d04ed73287872f" },

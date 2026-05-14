@@ -1,17 +1,44 @@
 -- this section containing any eye candy plugins
 return {
+  -- {
+  --   "Bekaboo/dropbar.nvim",
+  --   -- optional, but required for fuzzy finder support
+  --   dependencies = {
+  --     "nvim-telescope/telescope-fzf-native.nvim",
+  --     build = "make",
+  --   },
+  --   event = "BufEnter *.*",
+  --   config = function()
+  --     require "configs.dropbar"
+  --   end,
+  -- },
   {
-    {
-      "Bekaboo/dropbar.nvim",
-      -- optional, but required for fuzzy finder support
-      dependencies = {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-      },
-      event = "BufEnter *.*",
-      config = function()
-        require "configs.dropbar"
-      end,
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup {
+        symbol_in_winbar = {
+          enable = true, -- 🔥 enable breadcrumb
+          separator = "  ",
+          hide_keyword = true,
+          show_file = true,
+          folder_level = 2,
+          respect_root = false,
+          color_mode = true,
+        },
+        ui = {
+          border = "rounded",
+          code_action = "",
+        },
+      }
+    end,
+    -- config = function()
+    --   require("lspsaga").setup {}
+    --
+    -- end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
     },
   },
   {
