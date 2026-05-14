@@ -6,6 +6,7 @@ local options = {
       local ft = vim.bo[buf].filetype
       if vim.tbl_contains({
         "http",
+        "NvimTree",
       }, ft) then
         return false
       end
