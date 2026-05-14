@@ -26,7 +26,9 @@ vim.opt.ignorecase = true -- ignore cases (cmd autocomplete)
 vim.opt.termguicolors = true -- gui colors
 
 -- Fold options
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff:╱]]
+-- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff:╱]]
+vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldinner: ,foldclose:,diff:/"
+-- use Neovim nightly branch
 vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
