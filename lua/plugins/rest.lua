@@ -2,6 +2,7 @@ return {
   {
     -- POSTMAN/INSOMNIA REST CLIENT
     "mistweaverco/kulala.nvim",
+    -- commit = "6656c9d332735ca6a27725e0fb45a1715c4372d9",
     keys = {
       { "<leader>Rs", desc = "Send request" },
       { "<leader>Ra", desc = "Send all requests" },

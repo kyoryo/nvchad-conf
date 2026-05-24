@@ -2,7 +2,7 @@
 Starter config for NvChad
 
 ## Requirements
-- neovim >= 0.11.3+
+- neovim >= 0.12.0+
 
 ### quick installation
 
