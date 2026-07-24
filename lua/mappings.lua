@@ -216,6 +216,13 @@ map("n", "<M-b>", function()
   require("harpoon"):list():select(5)
 end, { desc = "HARPOON select buf 5" })
 
+map("n", "<C-1>", function()
+  require("harpoon"):list():select(1)
+end, { desc = "HARPOON select buf 1" })
+map("n", "<C-2>", function()
+  require("harpoon"):list():select(2)
+end, { desc = "HARPOON select buf 2" })
+
 -- Toggle previous & next buffers stored within Harpoon list
 map("n", "<C-S-P>", function()
   require("harpoon"):list():prev()
