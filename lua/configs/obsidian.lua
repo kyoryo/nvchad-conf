@@ -1,8 +1,8 @@
 local opts = {
   workspaces = {
     {
-      name = "pc personal",
-      path = "/mnt/c/Users/franz/Dropbox/ObsidianVault/kyoryo",
+      name = "werk mac",
+      path = "/Users/fm/Dropbox/ObsidianVault/kyoryo",
     },
   },
 

@@ -25,8 +25,8 @@ return {
     keys = {
       -- "<leader>ga", -- Default invocation prefix
       -- { "<leader>ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope convert word" },
-      "gwc", -- Default invocation prefix
-      { "gwc.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope convert word" },
+      "gw", -- Default invocation prefix
+      { "gw.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope convert word" },
     },
     cmd = {
       -- NOTE: The Subs command name can be customized via the option "substitude_command_name"
@@ -38,7 +38,7 @@ return {
     },
     opts = {
       default_keymappings_enabled = true,
-      prefix = "<leader>ga",
+      prefix = "gw",
     },
     config = function(_, opts)
       require("textcase").setup(opts)
