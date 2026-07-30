@@ -258,6 +258,10 @@ return {
     "lambdalisue/vim-suda",
     cmd = { "SudaRead", "SudaWrite" },
   },
+  {
+    "andymass/vim-matchup",
+    event = "BufRead",
+  },
   -- {
   --   "nanotee/sqls.nvim", --sqls adapter
   -- },
