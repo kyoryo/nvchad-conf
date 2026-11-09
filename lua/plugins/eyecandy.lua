@@ -112,7 +112,8 @@ return {
   {
     -- for terminal that do not have graphical capabilities (like kitty)
     "sphamba/smear-cursor.nvim",
-    enabled = not vim.g.neovide,
+    -- disabled on native Windows (WSL reports as linux, so it stays enabled there)
+    enabled = not vim.g.neovide and vim.fn.has "win32" == 0,
     event = { "BufEnter" },
     opts = {
       stiffness = 0.98,

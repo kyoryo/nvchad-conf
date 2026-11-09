@@ -5,6 +5,13 @@ vim.g.mapleader = " " -- Space as leader key
 vim.g.maplocalleader = "\\" -- Enter \ as local leader key
 
 vim.g.nvim_tree_respect_buf_cwd = 0
+
+-- No MSVC on this machine: build treesitter parsers with `zig cc` (see scripts/zigcc.ps1).
+-- Scoped to nvim's environment so other toolchains (cargo, go) are unaffected.
+if vim.fn.has "win32" == 1 and vim.env.CC == nil and vim.fn.executable "cl" == 0 and vim.fn.executable "zig" == 1 then
+  vim.env.CC = vim.fn.stdpath "config" .. "\\scripts\\zigcc.cmd"
+end
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 

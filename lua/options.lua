@@ -5,6 +5,14 @@ local colors = require("base46").get_theme_tb "base_30"
 -- local o = vim.o
 -- o.cursorlineopt = "both" -- to enable cursorline!
 
+-- Windows only
+if vim.fn.has("win32") == 1 then
+    vim.opt.shell = "nu"
+    vim.opt.shellcmdflag = "-c"
+    vim.opt.shellquote = ""
+    vim.opt.shellxquote = ""
+end
+
 vim.opt.relativenumber = true -- set default relative number
 vim.opt.number = true -- set default absolute number
 vim.opt.colorcolumn = "100" -- column marker, comment to disable
