@@ -156,6 +156,10 @@ M.ui = {
   },
   term = {},
 }
+-- default size of the <A-i> floating terminal (ratios of the editor), resize keys are in mappings.lua
+M.term = {
+  float = { row = 0.2, col = 0.15, width = 0.7, height = 0.6 },
+}
 M.nvdash = {
   load_on_startup = true,
 }

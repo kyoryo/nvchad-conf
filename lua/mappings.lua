@@ -70,6 +70,64 @@ end, { desc = "Toggle line and column" })
 -- END Horizontal and vertical highlight
 
 map("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+
+-- resize keys for nvchad floating terminals (<A-i>)
+-- the new size is written back to nvconfig.term.float, so the next toggle keeps it
+local float_term_default = vim.deepcopy(require("nvconfig").term.float)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "NvTerm_float",
+  callback = function(args)
+    local float = require("nvconfig").term.float
+    local default = float_term_default
+
+    local function apply()
+      float.row = (1 - float.height) / 2
+      float.col = (1 - float.width) / 2
+      vim.api.nvim_win_set_config(0, {
+        relative = "editor",
+        width = math.ceil(float.width * vim.o.columns),
+        height = math.ceil(float.height * vim.o.lines),
+        row = math.ceil(float.row * vim.o.lines),
+        col = math.ceil(float.col * vim.o.columns),
+      })
+    end
+    local function resize(dw, dh)
+      float.width = math.min(0.95, math.max(0.2, float.width + dw))
+      float.height = math.min(0.95, math.max(0.2, float.height + dh))
+      apply()
+    end
+    local function reset()
+      float.width, float.height = default.width, default.height
+      apply()
+    end
+
+    local function bmap(modes, lhs, fn, desc)
+      map(modes, lhs, fn, { buffer = args.buf, desc = "terminal float " .. desc })
+    end
+    -- works in terminal mode too
+    bmap({ "n", "t" }, "<A-=>", function()
+      resize(0.05, 0.05)
+    end, "grow")
+    bmap({ "n", "t" }, "<A-->", function()
+      resize(-0.05, -0.05)
+    end, "shrink")
+    bmap({ "n", "t" }, "<A-0>", reset, "reset size")
+    -- per-axis in normal mode (<C-x> to leave terminal mode), mirrors <C-w>< > + - =
+    bmap("n", ">", function()
+      resize(0.05, 0)
+    end, "wider")
+    bmap("n", "<", function()
+      resize(-0.05, 0)
+    end, "narrower")
+    bmap("n", "+", function()
+      resize(0, 0.05)
+    end, "taller")
+    bmap("n", "-", function()
+      resize(0, -0.05)
+    end, "shorter")
+    bmap("n", "=", reset, "reset size")
+  end,
+})
 -- map("n", ";", ":", { desc = "CMD enter command mode" })
 
 map("n", "<C-Left>", "<C-w>h", { desc = "Pane move left" })
